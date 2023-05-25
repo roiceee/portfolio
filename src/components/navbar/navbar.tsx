@@ -8,7 +8,7 @@ function Navbar() {
  
   return (
     
-      <div className="navbar bg-base-100 px-4 lg:px-24 sticky top-0 z-50">
+      <div className="navbar bg-base-100 px-4 lg:px-24 sticky top-0 z-50 backdrop-blur-sm bg-opacity-75">
         <div className="navbar-start">
           <a>
             <Image
