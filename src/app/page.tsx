@@ -11,6 +11,9 @@ import spring from "public/spring-icon.png";
 import mysql from "public/mysql.png";
 import postgres from "public/postgresql.png";
 import figma from "public/figma.png";
+import phraseapi from "public/phraseapi.png"
+import organize from "public/organize.png";
+import ProjectCard from "@/components/project-card/project-card";
 
 export default function Home() {
   return (
@@ -27,23 +30,55 @@ export default function Home() {
       </section>
       <section className="py-2">
         <h3>Tech Stack</h3>
-        <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-6">
-          <TechstackCard imageSrc={html} label="HTML" altText="HTML"/>
-          <TechstackCard imageSrc={css} label="CSS" altText="CSS"/>
-          <TechstackCard imageSrc={tailwind} label="Tailwind CSS" altText="Tailwind CSS"/>
-          <TechstackCard imageSrc={js} label="JavaScript" altText="JavaScript"/>
-          <TechstackCard imageSrc={figma} label="Figma" altText="Figma"/>
-          <TechstackCard imageSrc={react} label="React" altText="React"/>
-          <TechstackCard imageSrc={nextjs} label="NextJs" altText="NextJs"/>
-          <TechstackCard imageSrc={firebase} label="Firebase" altText="Firebase"/>
-          <TechstackCard imageSrc={java} label="Java" altText="Java"/>
-          <TechstackCard imageSrc={spring} label="Spring" altText="Spring"/>
-          <TechstackCard imageSrc={mysql} label="MySQL" altText="MySQL"/>
-          <TechstackCard imageSrc={postgres} label="PostgreSQL" altText="PostgreSQL"/>
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-6">
+          <TechstackCard imageSrc={html} label="HTML" altText="HTML" />
+          <TechstackCard imageSrc={css} label="CSS" altText="CSS" />
+          <TechstackCard
+            imageSrc={tailwind}
+            label="Tailwind CSS"
+            altText="Tailwind CSS"
+          />
+          <TechstackCard
+            imageSrc={js}
+            label="JavaScript"
+            altText="JavaScript"
+          />
+          <TechstackCard imageSrc={figma} label="Figma" altText="Figma" />
+          <TechstackCard imageSrc={react} label="React" altText="React" />
+          <TechstackCard imageSrc={nextjs} label="NextJs" altText="NextJs" />
+          <TechstackCard
+            imageSrc={firebase}
+            label="Firebase"
+            altText="Firebase"
+          />
+          <TechstackCard imageSrc={java} label="Java" altText="Java" />
+          <TechstackCard imageSrc={spring} label="Spring" altText="Spring" />
+          <TechstackCard imageSrc={mysql} label="MySQL" altText="MySQL" />
+          <TechstackCard
+            imageSrc={postgres}
+            label="PostgreSQL"
+            altText="PostgreSQL"
+          />
         </div>
       </section>
       <section className="py-2">
         <h3>Projects</h3>
+        <div className="grid lg:grid-cols-2 gap-3">
+          <ProjectCard
+            imageSrc={organize}
+            title="Organize"
+            description="Task management progressive web application (PWA) written in React and Firebase."
+            altText="Organize"
+            link="https://organizeapp.vercel.app"
+          />
+          <ProjectCard
+            imageSrc={phraseapi}
+            title="Phrase API"
+            description="REST API created using Spring Boot that allows you to get text-related data that can be used for frontend applications."
+            altText="Phrase API"
+            link="https://phraseapi.vercel.app"
+          />
+        </div>
       </section>
     </main>
   );
