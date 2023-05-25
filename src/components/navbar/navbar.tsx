@@ -7,8 +7,8 @@ function Navbar() {
 
  
   return (
-    <div className="md:container">
-      <div className="navbar bg-base-100 px-4">
+    
+      <div className="navbar bg-base-100 px-4 lg:px-24 sticky top-0 z-50">
         <div className="navbar-start">
           <a>
             <Image
@@ -29,7 +29,7 @@ function Navbar() {
           <NavbarDropdown/>
         </div>
       </div>
-    </div>
+    
   );
 }
 
