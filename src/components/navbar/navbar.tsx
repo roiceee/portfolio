@@ -2,9 +2,9 @@ import MenuItems from "./menu-links";
 
 function Navbar() {
   return (
-    <div className="container">
+   
       <div className="navbar bg-base-100">
-        <div className="navbar-start">
+        <div className="navbar-start px-2">
           <a className="text-xl font-semibold">roiceee</a>
         </div>
         <div className="navbar-end hidden lg:flex">
@@ -39,7 +39,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 }
 
