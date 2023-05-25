@@ -11,14 +11,14 @@ import spring from "public/spring-icon.png";
 import mysql from "public/mysql.png";
 import postgres from "public/postgresql.png";
 import figma from "public/figma.png";
-import phraseapi from "public/phraseapi.png"
+import phraseapi from "public/phraseapi.png";
 import organize from "public/organize.png";
 import ProjectCard from "@/components/project-card/project-card";
 
 export default function Home() {
   return (
     <main className="container text-center prose lg:prose-xl">
-      <section className="py-12">
+      <section className="pt-20 py-12">
         <div className="my-2 text-xl font-light">Hi, I&apos;m</div>
         <div className="my-2 text-4xl font-semibold">John Roice Aldeza</div>
         <div className="my-2 text-xl">I create web apps</div>
@@ -28,7 +28,7 @@ export default function Home() {
           functionality and intuitive frontend design.
         </div>
       </section>
-      <section className="py-2">
+      <section className="py-12">
         <h3>Tech Stack</h3>
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-6">
           <TechstackCard imageSrc={html} label="HTML" altText="HTML" />
@@ -61,7 +61,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="py-2">
+      <section className="py-12">
         <h3>Projects</h3>
         <div className="grid lg:grid-cols-2 gap-3">
           <ProjectCard
@@ -78,6 +78,15 @@ export default function Home() {
             altText="Phrase API"
             link="https://phraseapi.vercel.app"
           />
+        </div>
+      </section>
+      <section className="py-12 pb-24">
+        <h3>Let&apos;s build your ideas!</h3>
+        <p>Feel free to reach me out anytime.</p>
+        <div className="mt-8">
+          <button className="btn btn-accent btn-outline btn-wide px-6">
+            Contact me!
+          </button>
         </div>
       </section>
     </main>
