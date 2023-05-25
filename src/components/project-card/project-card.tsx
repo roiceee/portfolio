@@ -16,7 +16,7 @@ function ProjectCard({
   link,
 }: ProjectCardProps) {
   return (
-    <div className="rounded bg-neutral p-3 text-slate-200">
+    <div className="rounded bg-neutral p-3 text-slate-200 ">
       <div className="flex justify-center items-center gap-4">
         <div>
           <Image src={imageSrc} alt={altText} height={80} width={80} className="rounded" />
