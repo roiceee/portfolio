@@ -5,9 +5,6 @@ function MenuItems() {
         <a>Home</a>
       </li>
       <li>
-        <a>Projects</a>
-      </li>
-      <li>
         <a>Contact me</a>
       </li>
     </>
