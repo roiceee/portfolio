@@ -1,6 +1,7 @@
 import Navbar from '@/components/navbar/navbar'
 import './globals.css'
 import { Open_Sans } from 'next/font/google'
+import Footer from '@/components/footer/footer'
 
 const inter = Open_Sans({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar/>
         {children}
+        <Footer/>
         </body>
     </html>
   )
