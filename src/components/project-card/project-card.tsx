@@ -17,11 +17,11 @@ function ProjectCard({
   link,
 }: ProjectCardProps) {
   return (
-    <div className="rounded-xl border border-slate-200 hover:border-accent p-6 text-slate-200">
+    <div className="rounded-xl border-2 border-slate-200 hover:border-accent p-6 text-slate-200">
       <Link href={link} target="_blank">
       <div className="flex justify-center items-center gap-4">
         <div>
-          <Image src={imageSrc} alt={altText} height={80} width={80} className="rounded" />
+          <Image src={imageSrc} alt={altText} height={80} width={80} className="rounded"/>
         </div>
         <div className="text-xl font-semibold">{title}</div>
       </div>

@@ -31,7 +31,7 @@ export default function Home() {
         </div>
       </section>
       <section className="py-20">
-        <h3 className="text-4xl mb-8">Tech Stack</h3>
+        <h3 className="text-4xl mb-8 text-secondary">Tech Stack</h3>
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
           <TechstackCard imageSrc={html} label="HTML" altText="HTML" />
           <TechstackCard imageSrc={css} label="CSS" altText="CSS" />
@@ -64,7 +64,7 @@ export default function Home() {
         </div>
       </section>
       <section className="py-20">
-        <h3 className="text-4xl mb-8">Projects</h3>
+        <h3 className="text-4xl mb-8 text-secondary">Projects</h3>
         <div className="grid lg:grid-cols-2 gap-3">
           <ProjectCard
             imageSrc={organize}
@@ -83,8 +83,8 @@ export default function Home() {
         </div>
       </section>
       <section className="py-20 pb-40">
-        <h3 className="text-4xl mb-8">Let&apos;s build your ideas!</h3>
-        <p>Feel free to reach me out anytime.</p>
+        <h3 className="text-4xl mb-8 text-secondary">Let&apos;s build your ideas!</h3>
+        <p>Feel free to reach me out anytime. I would be happy to collaborate with you.</p>
         <div className="mt-8">
           <button className="btn btn-accent btn-outline btn-wide px-6">
             Contact me!

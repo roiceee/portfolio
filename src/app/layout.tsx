@@ -3,6 +3,7 @@ import './globals.css'
 import { Open_Sans } from 'next/font/google'
 import Footer from '@/components/footer/footer'
 
+
 const inter = Open_Sans({ subsets: ['latin'] })
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="night">
-      <body className={inter.className + " bg-gradient-to-b from-base-100 from-30% to-gradient1"}>
+      <body className={inter.className + " bg-gradient-to-b from-base-100 from-30% via-gradient1 via-80% to-gradient2"}>
         <Navbar/>
         {children}
         <Footer/>

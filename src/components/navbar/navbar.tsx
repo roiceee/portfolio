@@ -8,7 +8,7 @@ function Navbar() {
  
   return (
     
-      <div className="navbar bg-base-100 px-4 lg:px-24 sticky top-0 z-50 backdrop-blur-sm bg-opacity-75 outline-1" >
+      <div className="navbar px-4 lg:px-24 sticky top-0 z-50 backdrop-blur-sm outline-1" style={{borderBottom: "1px solid #063650"}}>
         <div className="navbar-start">
           <a>
             <Image
