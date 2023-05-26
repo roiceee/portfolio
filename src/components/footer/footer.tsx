@@ -36,10 +36,10 @@ function Footer() {
         />
       </div>
       <div
-        className="mt-6 mx-auto bg-base-100"
+        className="my-4 mx-auto bg-base-100"
         style={{ width: "85%", height: "1px" }}
       />
-      <div className="mt-4 text-center text-sm">Copyright © 2023 roiceee</div>
+      <div className="text-center text-sm">Copyright © 2023 roiceee</div>
     </div>
   );
 }
