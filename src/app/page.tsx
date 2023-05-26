@@ -10,11 +10,12 @@ import java from "public/java.png";
 import spring from "public/spring-icon.png";
 import mysql from "public/mysql.png";
 import postgres from "public/postgresql.png";
-import figma from "public/figma.png";
+import bootstrap from "public/bootstrap.png";
 import phraseapi from "public/phraseapi.png";
 import organize from "public/organize.png";
 import ProjectCard from "@/components/project-card/project-card";
 import PageContainer from "@/components/containers/page-container";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -40,12 +41,12 @@ export default function Home() {
             label="Tailwind CSS"
             altText="Tailwind CSS"
           />
+          <TechstackCard imageSrc={bootstrap} label="Bootstrap" altText="Bootstrap" />
           <TechstackCard
             imageSrc={js}
             label="JavaScript"
             altText="JavaScript"
           />
-          <TechstackCard imageSrc={figma} label="Figma" altText="Figma" />
           <TechstackCard imageSrc={react} label="React" altText="React" />
           <TechstackCard imageSrc={nextjs} label="NextJs" altText="NextJs" />
           <TechstackCard
@@ -65,7 +66,7 @@ export default function Home() {
       </section>
       <section className="py-20">
         <h3 className="text-4xl mb-8 text-secondary">Projects</h3>
-        <div className="grid lg:grid-cols-2 gap-3">
+        <div className="grid md:grid-cols-2 gap-3">
           <ProjectCard
             imageSrc={organize}
             title="Organize"
@@ -86,9 +87,11 @@ export default function Home() {
         <h3 className="text-4xl mb-8 text-secondary">Let&apos;s build your ideas!</h3>
         <p>Feel free to reach me out anytime. I would be happy to collaborate with you.</p>
         <div className="mt-8">
-          <button className="btn btn-accent btn-outline btn-wide px-6">
-            Contact me!
-          </button>
+          
+            <button className="btn btn-accent btn-outline btn-wide px-6">
+            <Link href={"/contact"}>Contact me!</Link>
+            </button>
+          
         </div>
       </section>
       </PageContainer>
