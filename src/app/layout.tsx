@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="night">
-      <body className={inter.className}>
+      <body className={inter.className + " bg-gradient-to-b from-base-100 from-30% to-gradient1"}>
         <Navbar/>
         {children}
         <Footer/>
