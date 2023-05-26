@@ -2,6 +2,7 @@ import MenuItems from "./menu-links";
 import logo from "public/roice-logo.png";
 import Image from "next/image";
 import NavbarDropdown from "./navbar-dropdown";
+import Link from "next/link";
 
 function Navbar() {
 
@@ -10,7 +11,7 @@ function Navbar() {
     
       <div className="navbar px-4 lg:px-24 sticky top-0 z-50 backdrop-blur-sm outline-1" style={{borderBottom: "1px solid #063650"}}>
         <div className="navbar-start">
-          <a>
+          <Link href={"/"}>
             <Image
               src={logo}
               alt={"logo"}
@@ -18,7 +19,7 @@ function Navbar() {
               width={40}
               placeholder="blur"
             />
-          </a>
+          </Link>
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

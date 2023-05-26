@@ -9,7 +9,7 @@ function ContactPage() {
           <div className="lg:flex justify-center gap-6">
             <div>
               <label className="label" htmlFor="name">
-                Name
+                <span className="label-text">Name</span>
               </label>
               <input
                 type="text"
@@ -19,7 +19,7 @@ function ContactPage() {
             </div>
             <div>
               <label className="label" htmlFor="email">
-                Email
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
@@ -30,7 +30,7 @@ function ContactPage() {
           </div>
           <div>
             <label className="label" htmlFor="message">
-              Message
+              <span className="label-text">Message</span>
             </label>
             <textarea
               className="textarea textarea-primary textarea-lg w-full"
