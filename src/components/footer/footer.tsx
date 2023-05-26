@@ -7,18 +7,18 @@ import SocialLink from "./social-link";
 
 function Footer() {
   return (
-    <div className="bg-neutral py-12">
+    <div className="bg-neutral py-8">
       <div className="flex flex-col items-center justify-center gap-2">
         <Image
           src={logo}
           alt="logo"
-          height={60}
-          width={60}
+          height={40}
+          width={40}
           placeholder="blur"
         />
-        <div className="text-lg font-semibold">John Roice Aldeza</div>
+        <div className="text-md font-semibold">John Roice Aldeza</div>
       </div>
-      <div className="mt-10 flex justify-center gap-6">
+      <div className="mt-6 flex justify-center gap-6">
         <SocialLink
           link="https://www.linkedin.com/in/johnroicealdeza"
           imageSrc={linkedin}
@@ -39,7 +39,7 @@ function Footer() {
         className="mt-6 mx-auto bg-base-100"
         style={{ width: "85%", height: "1px" }}
       />
-      <div className="mt-4 text-center">Copyright © 2023 roiceee</div>
+      <div className="mt-4 text-center text-sm">Copyright © 2023 roiceee</div>
     </div>
   );
 }

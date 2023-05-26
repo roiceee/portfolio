@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main>
       <PageContainer className="text-center">
-      <section className="py-32">
+      <section className="py-28">
         <div className="my-2 text-2xl font-light text-primary">Hi, I&apos;m</div>
         <div className="my-2 text-4xl md:text-5xl font-semibold text-accent">John Roice Aldeza</div>
         <div className="my-2 text-2xl text-primary">I create web apps</div>
@@ -31,7 +31,7 @@ export default function Home() {
           functionality and intuitive frontend design.
         </div>
       </section>
-      <section className="py-20">
+      <section className="py-12">
         <h3 className="text-4xl mb-8 text-secondary">Tech Stack</h3>
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
           <TechstackCard imageSrc={html} label="HTML" altText="HTML" />
@@ -64,7 +64,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="py-20">
+      <section className="py-12">
         <h3 className="text-4xl mb-8 text-secondary">Projects</h3>
         <div className="grid md:grid-cols-2 gap-3">
           <ProjectCard
@@ -83,7 +83,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="py-20 pb-40">
+      <section className="py-12 pb-24">
         <h3 className="text-4xl mb-8 text-secondary">Let&apos;s build your ideas!</h3>
         <p>Feel free to reach me out anytime. I would be happy to collaborate with you.</p>
         <div className="mt-8">

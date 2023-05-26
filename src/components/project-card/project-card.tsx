@@ -17,7 +17,7 @@ function ProjectCard({
   link,
 }: ProjectCardProps) {
   return (
-    <div className="rounded-xl border-2 border-slate-200 hover:border-accent p-6 text-slate-200">
+    <div className="rounded-xl border-2 border-slate-200 bg-neutral-900 bg-opacity-40 hover:border-accent p-6 text-slate-200">
       <Link href={link} target="_blank">
       <div className="flex justify-center items-center gap-4">
         <div>
