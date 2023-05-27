@@ -15,6 +15,7 @@ function ContactPage() {
                 type="text"
                 className="input input-bordered input-primary input-lg w-full"
                 id="name"
+                required
               />
             </div>
             <div>
@@ -25,6 +26,7 @@ function ContactPage() {
                 type="email"
                 className="input input-bordered input-primary input-lg w-full"
                 id="email"
+                required
               />
             </div>
           </div>
@@ -36,10 +38,11 @@ function ContactPage() {
               className="textarea textarea-primary textarea-lg w-full"
               id="message"
               style={{ minHeight: "200px" }}
+              required
             />
           </div>
           <div className="text-center my-10">
-            <button className="btn btn-accent btn-wide self-center">
+            <button className="btn btn-accent btn-outline btn-wide self-center border-2">
               Submit
             </button>
           </div>

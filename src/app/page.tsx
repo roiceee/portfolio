@@ -25,7 +25,7 @@ export default function Home() {
           <div className="my-2 text-2xl font-light text-primary">
             Hi, I&apos;m
           </div>
-          <div className="my-2 text-4xl md:text-5xl font-semibold text-accent">
+          <div className="my-2 text-4xl md:text-6xl font-bold text-accent">
             John Roice Aldeza
           </div>
           <div className="my-2 text-2xl text-primary">I create web apps</div>
@@ -101,7 +101,7 @@ export default function Home() {
           </p>
           <div className="mt-8">
             <Link href={"/contact"}>
-              <button className="btn btn-accent btn-outline btn-wide px-6">
+              <button className="btn btn-accent btn-outline btn-wide px-6 border-2">
                 Contact me!
               </button>
             </Link>
