@@ -1,4 +1,4 @@
-import MenuItems from "./menu-links";
+import MenuItems from "./menu-links/menu-links";
 import logo from "public/roice-logo.png";
 import Image from "next/image";
 import NavbarDropdown from "./navbar-dropdown";
@@ -22,7 +22,7 @@ function Navbar() {
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex gap-1">
+          <ul className="menu menu-horizontal px-1 flex gap-1 rounded-box">
             <MenuItems />
           </ul>
         </div>

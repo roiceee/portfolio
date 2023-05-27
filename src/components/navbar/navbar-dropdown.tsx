@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef } from "react";
-import MenuItems from "./menu-links";
+import MenuItems from "./menu-links/menu-links";
 
 function NavbarDropdown() {
   const dropdownRef = useRef<HTMLDivElement | null>(null);

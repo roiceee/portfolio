@@ -39,7 +39,7 @@ function ContactPage() {
             />
           </div>
           <div className="text-center my-10">
-            <button className="btn btn-outline btn-accent btn-wide self-center">
+            <button className="btn btn-accent btn-wide self-center">
               Submit
             </button>
           </div>
