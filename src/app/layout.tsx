@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" data-theme="night">
+    <html lang="en" data-theme="night" className='bg-neutral'>
       <body className={" bg-gradient-to-b from-base-100 from-40% via-gradient1 to-gradient2"}>
         <Navbar/>
         {children}
