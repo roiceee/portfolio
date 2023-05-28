@@ -26,13 +26,13 @@ function ContactPage() {
 
   return (
     <main>
-      <div className="py-24 flex flex-col justify-center items-center">
+      <div className="py-24">
         <h1 className="text-primary text-center text-3xl md:text-4xl mb-8">
           Hi, Let&apos;s have a talk!
         </h1>
-        <form onSubmit={handleSubmit} className="min-w-full md:min-w-fit">
-          <div className="md:flex justify-center gap-6">
-            <div>
+        <form onSubmit={handleSubmit} className="min-w-full">
+          <div className="sm:flex min-w-full justify-center gap-6">
+            <div className="w-full">
               <label className="label" htmlFor="name">
                 <span className="label-text">Name</span>
               </label>
@@ -45,7 +45,7 @@ function ContactPage() {
                 onChange={(e) => handleFormValues(e)}
               />
             </div>
-            <div>
+            <div className="w-full">
               <label className="label" htmlFor="email">
                 <span className="label-text">Email</span>
               </label>
