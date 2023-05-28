@@ -1,12 +1,37 @@
+"use client";
+
+import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+
 function ContactPage() {
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleFormValues = useCallback(
+    (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+      setFormValues((prevState) => ({
+        ...prevState,
+        [e.target.id]: e.target.value,
+      }));
+    },
+    []
+  );
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    //todo
+  };
+
   return (
     <main>
       <div className="py-24 flex flex-col justify-center items-center">
-        <h1 className="text-primary text-center text-3xl mb-8">
+        <h1 className="text-primary text-center text-3xl md:text-4xl mb-8">
           Hi, Let&apos;s have a talk!
         </h1>
-        <form>
-          <div className="lg:flex justify-center gap-6">
+        <form onSubmit={handleSubmit} className="min-w-full md:min-w-fit">
+          <div className="md:flex justify-center gap-6">
             <div>
               <label className="label" htmlFor="name">
                 <span className="label-text">Name</span>
@@ -16,6 +41,8 @@ function ContactPage() {
                 className="input input-bordered input-primary input-lg w-full"
                 id="name"
                 required
+                value={formValues.name}
+                onChange={(e) => handleFormValues(e)}
               />
             </div>
             <div>
@@ -27,6 +54,8 @@ function ContactPage() {
                 className="input input-bordered input-primary input-lg w-full"
                 id="email"
                 required
+                value={formValues.email}
+                onChange={(e) => handleFormValues(e)}
               />
             </div>
           </div>
@@ -39,6 +68,8 @@ function ContactPage() {
               id="message"
               style={{ minHeight: "200px" }}
               required
+              value={formValues.message}
+              onChange={(e) => handleFormValues(e)}
             />
           </div>
           <div className="text-center my-10">
