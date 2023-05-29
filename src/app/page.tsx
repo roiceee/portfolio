@@ -100,11 +100,11 @@ export default function Home() {
             with you.
           </p>
           <div className="mt-8">
-            <Link href={"/contact"}>
+            <a href="mailto:jroicealdeza@gmail.com">
               <button className="btn btn-accent btn-outline btn-wide px-6 border-2">
                 Contact me!
               </button>
-            </Link>
+            </a>
           </div>
         </section>
       </PageContainer>
