@@ -2,7 +2,7 @@ import Navbar from "@/components/navbar/navbar";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
-import { Poppins } from "next/font/google";
+import { Lato } from "next/font/google";
 import PageContainer from "@/components/containers/page-container";
 
 export const metadata = {
@@ -10,7 +10,7 @@ export const metadata = {
   description: "John Roice Aldeza's Dev Portfolio",
 };
 
-const font = Poppins({ subsets: ["latin"], weight: "400" });
+const font = Lato({ subsets: ["latin"], weight: "400" });
 
 export default function RootLayout({
   children,
