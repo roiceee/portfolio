@@ -13,7 +13,7 @@ export async function GET(
         Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
         "Content-Type": "application/json",
       },
-      next: { revalidate: 3600 },
+      next: { revalidate: 1200 },
     }
   );
 
