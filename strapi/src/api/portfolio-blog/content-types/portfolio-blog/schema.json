@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_blogs",
+  "info": {
+    "singularName": "portfolio-blog",
+    "pluralName": "portfolio-blogs",
+    "displayName": "portfolio-blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date_published": {
+      "type": "datetime",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true,
+      "default": "John Roice Aldeza"
+    },
+    "portfolio_blog_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::portfolio-blog-tag.portfolio-blog-tag",
+      "inversedBy": "portfolio_blogs"
+    },
+    "portfolio_blog_archive": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::portfolio-blog-archive.portfolio-blog-archive",
+      "inversedBy": "portfolio_blogs"
+    }
+  }
+}
