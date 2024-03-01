@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(request: Request) {
   const res = await fetch(
     `${process.env.STRAPI_URL}/api/portfolio-blog-archives`,
@@ -9,5 +11,5 @@ export async function GET(request: Request) {
   );
 
   const data = await res.json();
-  return Response.json(data);
+  return NextResponse.json(data);
 }

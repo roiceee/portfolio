@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
@@ -29,5 +29,5 @@ export async function GET(
   });
 
   const data = await res.json();
-  return Response.json(data);
+  return NextResponse.json(data);
 }
