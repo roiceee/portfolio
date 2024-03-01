@@ -2,8 +2,7 @@
 import { useRouter } from "next/navigation";
 
 interface Props {
-  text?: string;
-  className?: string;
+  text?: string;className?: string;
 }
 
 export default function BackButton({ text, className }: Props) {
