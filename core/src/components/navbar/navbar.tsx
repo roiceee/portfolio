@@ -1,9 +1,7 @@
-import MenuItems from "./menu-links/menu-links";
-import logo from "public/roice-logo.png";
-import Image from "next/image";
-import NavbarDropdown from "./navbar-dropdown";
 import Link from "next/link";
 import RoiceText from "../roice";
+import MenuItems from "./menu-links/menu-links";
+import NavbarDropdown from "./navbar-dropdown";
 
 function Navbar() {
   return (

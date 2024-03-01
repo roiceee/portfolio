@@ -1,42 +1,39 @@
+import { formatDate } from "@/util/date";
 import _ from "lodash";
 import Link from "next/link";
 
 interface Props {
   title: string;
   date: Date;
-  previewContent: string;
+  excerpt: string;
   tags: string[];
   url: string;
 }
 
-export default function BlogCard({
-  title,
-  date,
-  previewContent,
-  tags,
-  url,
-}: Props) {
+export default function BlogCard({ title, date, excerpt, tags, url }: Props) {
   return (
     <section className="prose">
-      <h1 className="text-secondary mb-2 font-medium">{title}</h1>
+      <Link
+        href={url}
+        className="no-underline hover:underline decoration-secondary"
+      >
+        <h1 className="text-secondary mb-2 font-medium">{title}</h1>
+      </Link>
       <span>
-        <i>Published on {date.toLocaleDateString()}</i>
+        <i>{formatDate(date)}</i>
       </span>
-      <p>
-        {_.truncate(previewContent, {
-          length: 150,
-          omission: "...",
-        })}
-      </p>
+      <p>{excerpt}</p>
       <div>
-        <div className=" ">
-          <span>Tags: </span>
-          {tags.map((tag) => (
-            <span key={tag} className="mx-1 badge badge-ghost">
-              {tag}
-            </span>
-          ))}
-        </div>
+        {tags.length !== 0 && (
+          <div>
+            <span>Tags: </span>
+            {tags.map((tag) => (
+              <span key={tag} className="mx-1 badge badge-ghost">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
       <div className="text-right mt-3">
         <Link href={url} className="text-secondary">

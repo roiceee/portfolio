@@ -1,6 +1,6 @@
 function ContactPage() {
   return (
-    <main className="">
+    <main className="my-32">
       <section className="text-center flex justify-center items-center">
         <div className="">
           <h1 className="text-3xl md:text-4xl mb-8 font-bold">

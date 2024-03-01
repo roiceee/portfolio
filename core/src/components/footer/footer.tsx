@@ -6,9 +6,13 @@ import linkedin from "public/linkedin.svg";
 import SocialLink from "./social-link";
 import RoiceText from "../roice";
 
-function Footer() {
+interface Props {
+  className?: string;
+}
+
+function Footer({ className }: Props) {
   return (
-    <div className="backdrop-blur-sm py-8 border-t">
+    <div className={`backdrop-blur-sm py-8 border-t ${className}`}>
       <div className="flex flex-col items-center justify-center gap-2">
         <div className="flex justify-center items-center">
           <RoiceText className="px-4" />

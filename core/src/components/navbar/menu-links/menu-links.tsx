@@ -15,14 +15,21 @@ function MenuItems({ onClick }: MenuItemsProps) {
 
   const addActive = useCallback(() => {
     items.current.forEach((element) => {
-      if (element) {
+      if (!element) {
+        return;
+      }
+      if (element.id === "/") {
         if (pathname === element.id) {
           element.classList.add("nav-active");
         } else {
           element.classList.remove("nav-active");
         }
-        element.blur();
+      } else if (pathname.includes(element.id)) {
+        element.classList.add("nav-active");
+      } else {
+        element.classList.remove("nav-active");
       }
+      element.blur();
     });
   }, [pathname]);
 
@@ -44,7 +51,7 @@ function MenuItems({ onClick }: MenuItemsProps) {
       <li onClick={onClick}>
         <Link
           className="active:bg-accent active:text-white"
-          href={"/blog"}
+          href={"/blog/1"}
           ref={(element) => items.current.push(element)}
           id="/blog"
         >

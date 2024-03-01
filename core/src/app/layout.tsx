@@ -21,12 +21,12 @@ export default function RootLayout({
     <html lang="en" data-theme="emerald" className={font.className}>
       <body>
         <div
-          className="flex flex-col justify-between gap-1 relative"
+          className="flex flex-col justify-start gap-1 relative"
           style={{ minHeight: "100vh" }}
         >
           <Navbar />
           <PageContainer>{children}</PageContainer>
-          <Footer />
+          <Footer className={"mt-auto"} />
         </div>
       </body>
       <Script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-links@2/tsparticles.preset.links.min.js"></Script>
