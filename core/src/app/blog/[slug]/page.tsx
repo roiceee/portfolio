@@ -27,16 +27,22 @@ export default async function Page({ params, searchParams }: Props) {
     return url;
   };
 
-  const res = await fetch(generateURL().toString(), { cache: "no-store" });
+  const res: Response | undefined = await fetch(generateURL().toString(), {
+    cache: "no-store",
+  });
 
-  const data: BlogPreviewPage = await res.json();
+  const data: BlogPreviewPage | undefined = await res.json();
 
-  const archiveRes = await fetch(
+  const archiveRes: Response | undefined = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/blog/archives`,
     { cache: "no-store" }
   );
 
-  const archiveData: ArchivePreviewPage = await archiveRes.json();
+  const archiveData: ArchivePreviewPage | undefined = await archiveRes.json();
+
+  if (!data || !archiveData) {
+    return <div>Not found</div>;
+  }
 
   if (data.data.length === 0) {
     // return no post found with button to go back

@@ -4,12 +4,17 @@ import { formatDate } from "@/util/date";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const res = await fetch(
+  const res : Response | undefined = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
     { cache: "no-store" }
   );
 
-  const data: ArticleResponse = await res.json();
+  const data: ArticleResponse | undefined = await res.json();
+
+  if (!data) {
+      return <div>Not found</div>;
+  }
+
   return (
     <main className="prose max-w-2xl mx-auto my-12">
       <section className="mb-8">
