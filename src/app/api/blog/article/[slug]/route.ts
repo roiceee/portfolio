@@ -5,19 +5,24 @@ export async function GET(
   { params }: { params: { slug: string } }
 ) {
   //get blog article data
-  const res = await fetch(
-    `http://localhost:1337/api/portfolio-blogs/${params.slug}?populate=*`,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      next: { revalidate: 1200 },
-    }
-  );
 
-  const data = await res.json();
+  try {
+    const res = await fetch(
+      `http://localhost:1337/api/portfolio-blogs/${params.slug}?populate=*`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        next: { revalidate: 1200 },
+      }
+    );
 
-  return NextResponse.json(data);
+    const data = await res.json();
+
+    return NextResponse.json(data);
+  } catch {
+    return NextResponse.json(undefined);
+  }
 }
