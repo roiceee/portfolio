@@ -8,7 +8,7 @@ export async function GET(
 
   try {
     const res = await fetch(
-      `http://localhost:1337/api/portfolio-blogs/${params.slug}?populate=*`,
+      `${process.env.STRAPI_URL}/api/portfolio-blogs/${params.slug}?populate=*`,
       {
         method: "GET",
         headers: {
