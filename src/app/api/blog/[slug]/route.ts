@@ -9,11 +9,17 @@ export async function GET(
 
     const archive = searchParams.get("archive");
 
-    const pageNum = params.slug ? params.slug : 1;
+    const pageNum = params.slug ? params.slug : "1";
 
-    const url = new URL(
-      `${process.env.STRAPI_URL}/api/portfolio-blogs?pagination[page]=${pageNum}&fields[0]=title&fields[1]=date_published&fields[2]=excerpt&populate=*`
-    );
+    const url = new URL(`${process.env.STRAPI_URL}/api/portfolio-blogs`);
+
+    url.searchParams.append("pagination[page]", pageNum);
+    url.searchParams.append("fields[0]", "title");
+    url.searchParams.append("fields[1]", "date_published");
+    url.searchParams.append("fields[2]", "excerpt");
+    url.searchParams.append("fields[3]", "createdAt");
+    url.searchParams.append("sort", "createdAt:desc");
+    url.searchParams.append("populate", "*");
 
     if (archive) {
       url.searchParams.append(
@@ -30,6 +36,7 @@ export async function GET(
     });
 
     const data = await res.json();
+
     return NextResponse.json(data);
   } catch {
     NextResponse.json(undefined);
