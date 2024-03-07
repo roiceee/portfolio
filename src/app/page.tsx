@@ -212,7 +212,7 @@ export default function Home() {
           <div className="mt-8">
             <a href="mailto:jroicealdeza@gmail.com">
               <button className="btn btn-outline btn-accent btn-wide px-6 border-2">
-                Contact me!
+                Mail me!
               </button>
             </a>
           </div>
