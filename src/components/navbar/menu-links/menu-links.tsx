@@ -40,7 +40,7 @@ function MenuItems({ onClick }: MenuItemsProps) {
     <>
       <li onClick={onClick}>
         <Link
-          className="active:bg-accent active:text-white"
+          className="font-bold text-lg active:bg-accent active:text-white"
           href={"/"}
           ref={(element) => items.current.push(element)}
           id="/"
@@ -50,7 +50,7 @@ function MenuItems({ onClick }: MenuItemsProps) {
       </li>
       <li onClick={onClick}>
         <Link
-          className="active:bg-accent active:text-white"
+          className="font-bold text-lg active:bg-accent active:text-white"
           href={"/blog/1"}
           ref={(element) => items.current.push(element)}
           id="/blog"
@@ -60,7 +60,7 @@ function MenuItems({ onClick }: MenuItemsProps) {
       </li>
       <li onClick={onClick}>
         <Link
-          className="active:bg-accent active:text-white"
+          className="font-bold text-lg active:bg-accent active:text-white"
           href={"/contact"}
           ref={(element) => items.current.push(element)}
           id="/contact"

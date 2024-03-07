@@ -2,7 +2,7 @@ import ContactForm from "@/components/contact-form";
 
 function ContactPage() {
   return (
-    <main className="my-24">
+    <main className="my-16">
       <section className="text-center flex justify-center items-center">
         <div className="">
           <h1 className="text-3xl md:text-4xl font-bold">
@@ -21,7 +21,7 @@ function ContactPage() {
               </button>
             </a>
           </section>
-          <hr className="my-4" />
+          <hr className="my-8" />
           <section>
             <h5 className="font-bold">Or send a quick message!</h5>
             <ContactForm />
