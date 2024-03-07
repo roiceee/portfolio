@@ -6,7 +6,7 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 export default async function Page({ params }: { params: { slug: string } }) {
   const res : Response | undefined = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
-    { cache: "no-store" }
+    { next: {revalidate: 1200} }
   );
 
   const data: ArticleResponse | undefined = await res.json();
