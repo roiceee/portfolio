@@ -19,7 +19,7 @@ function ProjectCard({
   demoLink,
 }: ProjectCardProps) {
   return (
-    <div className="flex flex-col rounded-xl border-2 p-5">
+    <div className="flex flex-col rounded-xl border-2 p-5 max-w-2xl">
       <div className="flex justify-center items-center gap-4">
         <div>
           <Image
@@ -33,7 +33,7 @@ function ProjectCard({
         <div className="text-xl font-semibold">{title}</div>
       </div>
 
-      <div className="mt-2 text-sm mb-4">{description}</div>
+      <div className="mt-2 text-sm md:text-base mb-4">{description}</div>
 
       <div className="flex justify-center gap-4 mt-auto">
         <Link href={demoLink} target="_blank">

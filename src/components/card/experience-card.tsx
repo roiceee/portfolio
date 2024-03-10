@@ -31,7 +31,7 @@ function ExperienceCard({
         <div className="text-start">
           <h3 className="text-xl font-semibold">{title}</h3>
           <div className="mb-2">{year}</div>
-          {isExpand && <div>{expand}</div>}
+          {isExpand && <div >{expand}</div>}
         </div>
       </div>
       <div className="absolute text-secondary start-1/2 bottom-1 -translate-x-1/2">

@@ -26,8 +26,8 @@ export default function Home() {
               <Image
                 src={profile}
                 alt="profile picture"
-                width={220}
-                height={220}
+                width={280}
+                height={280}
                 className={style.profileImage}
               />
             </div>
@@ -42,7 +42,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8 md:mt-12 text-md md:text-lg md:text-left">
+          <div className="mt-8 md:mt-12 text-md sm:text-lg md:text-xl md:text-left">
             <b>Hello there! I&apos;m Roice,</b> a curious developer who just
             likes to build stuff. I like digging into the nitty-gritty of
             backend functions and making user interface that just make sense.
@@ -125,7 +125,7 @@ export default function Home() {
             title="Google Developer Student Clubs USeP Lead"
             year="2023-2024"
             expand={
-              <div className="text-start prose text-sm">
+              <div className="text-start prose text-sm md:text-base">
                 <div>
                   I became the Google DSC Lead of University of Southeastern
                   Philippines. This leadership role allowed me to cultivate a
@@ -173,7 +173,7 @@ export default function Home() {
             title="Postman Student Leader"
             year="2023-2024"
             expand={
-              <div className="text-start prose text-sm">
+              <div className="text-start prose text-sm md:text-base">
                 <div>
                   Being a Postman Student Leader, I was able to share my
                   knowledge and passion for API development and testing to

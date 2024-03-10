@@ -20,7 +20,7 @@ function TechstackCard({ imageSrc, className, label, altText}: CardProps) {
             placeholder="blur"
           />
       </div>
-      <div className="text-sm mt-2">{label}</div>
+      <div className="text-base mt-2">{label}</div>
     </div>
   );
 }
