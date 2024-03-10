@@ -23,7 +23,7 @@ function ExperienceCard({
 
   return (
     <div
-      className="relative rounded-xl border-2 p-5 select-none hover:border-secondary"
+      className="relative rounded-xl border-2 p-5 select-none hover:border-secondary w-full max-w-2xl mx-auto"
       onClick={toggleExpand}
     >
       <div className="flex gap-5 mb-4">
