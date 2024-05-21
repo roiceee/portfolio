@@ -17,15 +17,25 @@ export async function generateMetaData({
   const data: ArticleResponse | undefined = await res.json();
 
   if (!data) {
-    return {
-
-    }
+    return {};
   }
 
   return {
     title: data.data.attributes.title,
     description: data.data.attributes.excerpt,
     date: data.data.attributes.date_published,
+    openGraph: {
+      title: data.data.attributes.title,
+      description: data.data.attributes.excerpt,
+      type: "article",
+      article: {
+        publishedTime: data.data.attributes.date_published,
+        modifiedTime: data.data.attributes.updatedAt,
+        tags: data.data.attributes.portfolio_blog_tags.data.map(
+          (tag) => tag.attributes.tag
+        ),
+      },
+    },
   } as Metadata;
 }
 
