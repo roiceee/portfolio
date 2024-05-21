@@ -8,7 +8,8 @@ export async function GET(request: Request) {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
         },
-      }
+        cache: "no-store"
+      },
     );
 
     const data = await res.json();
