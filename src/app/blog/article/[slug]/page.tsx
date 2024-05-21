@@ -4,7 +4,7 @@ import { formatDate } from "@/util/date";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { Metadata } from "next";
 
-export async function generateMetaData({
+export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
