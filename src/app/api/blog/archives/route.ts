@@ -8,13 +8,15 @@ export async function GET(request: Request) {
         headers: {
           Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
         },
-        cache: "no-store"
-      },
+        cache: "no-store",
+      }
     );
 
     const data = await res.json();
     return NextResponse.json(data);
   } catch {
-    return NextResponse.json(undefined);
+    return NextResponse.json({
+      error: "Failed to fetch data",
+    });
   }
 }
