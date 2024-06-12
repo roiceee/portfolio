@@ -28,7 +28,7 @@ export default function Home() {
                 alt="profile picture"
                 width={280}
                 height={280}
-                className={style.profileImage}
+                className={style.profileImage + " rounded-full"}
               />
             </div>
 
