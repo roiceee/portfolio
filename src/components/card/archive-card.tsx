@@ -18,7 +18,7 @@ export default function ArchiveCard({ data, className }: Props) {
       <h2>Archive</h2>
       <div className="grid grid-cols-2 md:grid-cols-1 gap-x-2 md:gap-x-10">
         <Link href={`${pathname}`}>All</Link>
-        {data.data.map((archive) => (
+        {data.data.reverse().map((archive) => (
           <Link
             key={`archive-${archive.id}`}
             href={`${pathname}?archive=${archive.id}`}
