@@ -4,6 +4,7 @@ import Footer from "@/components/footer/footer";
 import Script from "next/script";
 import { Lato } from "next/font/google";
 import PageContainer from "@/components/containers/page-container";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "John Roice Aldeza",
@@ -29,7 +30,7 @@ export default function RootLayout({
           <Footer className={"mt-auto"} />
         </div>
       </body>
-      <Script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-links@2/tsparticles.preset.links.min.js"></Script>
+      <Analytics />
     </html>
   );
 }
