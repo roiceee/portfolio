@@ -8,9 +8,10 @@ export async function GET(
 ) {
   //get blog article data
 
+  
   try {
     const res = await fetch(
-      `${process.env.STRAPI_URL}/api/portfolio-blogs/${params.slug}?populate=*`,
+      `${process.env.STRAPI_URL}/api/portfolio-blogs?filters[slug][$eq]=${params.slug}&populate=*`,
       {
         method: "GET",
         headers: {

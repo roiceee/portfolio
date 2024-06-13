@@ -87,7 +87,7 @@ export default async function Page({ params, searchParams }: Props) {
                   tags={post.attributes.portfolio_blog_tags.data.map(
                     (tag) => tag.attributes.tag
                   )}
-                  url={`/blog/article/${post.id}`}
+                  url={`/blog/article/${post.attributes.slug}`}
                 />
                 <hr className="my-8" />
               </div>

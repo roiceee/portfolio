@@ -30,6 +30,7 @@ interface BlogPost {
     portfolio_blog_tags: {
       data: BlogTag[];
     };
+    slug: string;
     portfolio_blog_archive: BlogArchive;
   };
 }

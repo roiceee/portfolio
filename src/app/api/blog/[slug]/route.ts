@@ -19,6 +19,7 @@ export async function GET(
     url.searchParams.append("fields[0]", "title");
     url.searchParams.append("fields[1]", "date_published");
     url.searchParams.append("fields[2]", "excerpt");
+    url.searchParams.append("fields[3]", "slug");
     url.searchParams.append("sort", "date_published:desc");
     url.searchParams.append("populate", "*");
 
