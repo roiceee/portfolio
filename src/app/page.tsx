@@ -49,9 +49,9 @@ export default function Home() {
             Let&apos;s team up and build some awesome stuff together!
           </div>
           <div className="mt-12">
-            <a href={"/cv_JohnRoiceAldeza.pdf"} target="_blank">
+            <a href={"/resume-aldeza.pdf"} target="_blank">
               <button className=" btn btn-outline btn-accent btn-wide font-bold border-2">
-                View Curriculum Vitae
+                View Resume
               </button>
             </a>
           </div>
