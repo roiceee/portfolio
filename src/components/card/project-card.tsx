@@ -6,8 +6,9 @@ interface ProjectCardProps {
   altText: string;
   title: string;
   description: string;
-  repoLink: string;
-  demoLink: string;
+  repoLink?: string;
+  demoLink?: string;
+  role: string;
 }
 
 function ProjectCard({
@@ -17,6 +18,7 @@ function ProjectCard({
   description,
   repoLink,
   demoLink,
+  role,
 }: ProjectCardProps) {
   return (
     <div className="flex flex-col rounded-xl border-2 p-5 max-w-2xl">
@@ -33,19 +35,27 @@ function ProjectCard({
         <div className="text-xl font-semibold">{title}</div>
       </div>
 
-      <div className="mt-2 text-sm md:text-base mb-4">{description}</div>
+      <div className="my-2">
+        <div className=" badge badge-outline">{role}</div>
+      </div>
+
+      <div className="text-sm md:text-base mb-4">{description}</div>
 
       <div className="flex justify-center gap-4 mt-auto">
-        <Link href={demoLink} target="_blank">
-          <button className="btn btn-outline btn-secondary btn-sm font-bold border-2">
-            View Demo
-          </button>
-        </Link>
-        <Link href={repoLink} target="_blank">
-          <button className="btn btn-outline btn-accent btn-sm font-bold border-2">
-            View Code
-          </button>
-        </Link>
+        {demoLink && (
+          <Link href={demoLink} target="_blank">
+            <button className="btn btn-outline btn-secondary btn-sm font-bold border-2">
+              View Demo
+            </button>
+          </Link>
+        )}
+        {repoLink && (
+          <Link href={repoLink} target="_blank">
+            <button className="btn btn-outline btn-accent btn-sm font-bold border-2">
+              View Code
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
