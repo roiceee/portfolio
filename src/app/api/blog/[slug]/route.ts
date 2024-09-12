@@ -18,7 +18,7 @@ export async function GET(
     const url = new URL(`${process.env.STRAPI_URL}/api/portfolio-blogs`);
 
     url.searchParams.append("pagination[page]", pageNum);
-    url.searchParams.append("pagination[pageSize]", "4");
+    url.searchParams.append("pagination[pageSize]", "3");
     url.searchParams.append("fields[0]", "title");
     url.searchParams.append("fields[1]", "date_published");
     url.searchParams.append("fields[2]", "excerpt");
