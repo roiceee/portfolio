@@ -11,11 +11,14 @@ export async function GET(
 
     const archive = searchParams.get("archive");
 
+    const tags = searchParams.getAll("tag");
+
     const pageNum = params.slug ? params.slug : "1";
 
     const url = new URL(`${process.env.STRAPI_URL}/api/portfolio-blogs`);
 
     url.searchParams.append("pagination[page]", pageNum);
+    url.searchParams.append("pagination[pageSize]", "4");
     url.searchParams.append("fields[0]", "title");
     url.searchParams.append("fields[1]", "date_published");
     url.searchParams.append("fields[2]", "excerpt");
@@ -28,6 +31,15 @@ export async function GET(
         "filters[portfolio_blog_archive][id][$eq]",
         archive
       );
+    }
+
+    if (tags) {
+      if (tags instanceof Array) {
+        tags.forEach((tag) => {
+          url.searchParams.append("filters[portfolio_blog_tags][id][$eq]", tag);
+        });
+      }
+      
     }
 
     //get blogs data

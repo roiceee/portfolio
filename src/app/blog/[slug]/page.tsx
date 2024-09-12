@@ -1,10 +1,11 @@
 import BackButton from "@/components/back-button";
+import BlogTagDiv from "@/components/blog-tag-div";
 import ArchiveCard from "@/components/card/archive-card";
 import BlogCard from "@/components/card/blog-card";
 import { ArchivePreviewPage } from "@/types/archivetypes";
+import BlogTagsResponseData from "@/types/blogtagTypes";
 import { BlogPreviewPage } from "@/types/blogtypes";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 interface Props {
   params: { slug: string };
@@ -24,6 +25,20 @@ export default async function Page({ params, searchParams }: Props) {
       url.searchParams.append("archive", archive);
     }
 
+    if (searchParams.tag) {
+      //this can be multiple tags, or one tag
+
+      const tag = searchParams.tag;
+
+      if (Array.isArray(tag)) {
+        tag.forEach((tag) => {
+          url.searchParams.append("tag", tag);
+        });
+      } else {
+        url.searchParams.append("tag", tag);
+      }
+    }
+
     return url;
   };
 
@@ -39,6 +54,12 @@ export default async function Page({ params, searchParams }: Props) {
   );
 
   const archiveData: ArchivePreviewPage | undefined = await archiveRes.json();
+
+  const tagRes: Response | undefined = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/api/blog/tags`
+  );
+
+  const tagData: BlogTagsResponseData | undefined = await tagRes.json();
 
   if (!data || !archiveData) {
     return <div>Not found</div>;
@@ -59,6 +80,7 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <main>
+      {tagData && <BlogTagDiv className="mb-10" content={tagData} />}
       {searchParams.archive && (
         <div className="mb-6 flex items-center gap-2 text-xl">
           <div>Archive:</div>
@@ -94,7 +116,7 @@ export default async function Page({ params, searchParams }: Props) {
             ))}
           </section>
           <div>
-            <div className="flex w-full text-primary text-xl font-bold">
+            <div className="flex w-full text-primary text-2xl font-bold mb-8">
               {Number(params.slug) > 1 && (
                 <div className="mr-auto">
                   <Link
@@ -104,7 +126,7 @@ export default async function Page({ params, searchParams }: Props) {
                         : ""
                     }`}
                   >
-                    <span>Previous</span>
+                    <span className="hover:underline">Previous</span>
                   </Link>
                 </div>
               )}
@@ -117,7 +139,7 @@ export default async function Page({ params, searchParams }: Props) {
                         : ""
                     }`}
                   >
-                    <span>Next</span>
+                    <span className="hover:underline">Next</span>
                   </Link>
                 </div>
               )}

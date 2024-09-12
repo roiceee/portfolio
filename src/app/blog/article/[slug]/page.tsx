@@ -76,25 +76,26 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </section>
 
       <h1>{data.data[0].attributes.title}</h1>
-      <section className="mb-12">
-        <h4>{data.data[0].attributes.author}</h4>
-        <p>Published on {formatDate(data.data[0].attributes.date_published)}</p>
-      </section>
       <section>
-        <BlocksRenderer content={data.data[0].attributes.content} />
-      </section>
-      {data.data[0].attributes.portfolio_blog_tags.data.length !== 0 && (
-        <section>
-          <h3>
-            Tags:
+        <h4>{data.data[0].attributes.author}</h4>
+        <p className="mb-2">
+          Published on {formatDate(data.data[0].attributes.date_published)}
+        </p>
+        {data.data[0].attributes.portfolio_blog_tags.data.length !== 0 && (
+          <section>
+            <span>Tags:</span>
             {data.data[0].attributes.portfolio_blog_tags.data.map((tag, i) => (
               <span key={tag.id} className="mx-1 badge badge-ghost">
                 {tag.attributes.tag}
               </span>
             ))}
-          </h3>
-        </section>
-      )}
+          </section>
+        )}
+      </section>
+
+      <section className="mt-12">
+        <BlocksRenderer content={data.data[0].attributes.content} />
+      </section>
     </main>
   );
 }
