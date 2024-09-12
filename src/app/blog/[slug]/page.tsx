@@ -65,19 +65,6 @@ export default async function Page({ params, searchParams }: Props) {
     return <div>Not found</div>;
   }
 
-  if (data.data.length === 0) {
-    // return no post found with button to go back
-    return (
-      <section className=" md:flex gap-12">
-        <section className="prose">
-          <h2>No blog posts found.</h2>
-          <BackButton text="Go Back" className="btn btn-sm" />
-        </section>
-        <ArchiveCard data={archiveData} />
-      </section>
-    );
-  }
-
   return (
     <main>
       {tagData && <BlogTagDiv className="mb-10" content={tagData} />}
@@ -97,58 +84,69 @@ export default async function Page({ params, searchParams }: Props) {
             })}
         </div>
       )}
-      <section className=" md:flex gap-12">
-        <section>
-          <section>
-            {data.data.map((post) => (
-              <div key={`blog-${post.id}`}>
-                <BlogCard
-                  title={post.attributes.title}
-                  date={new Date(post.attributes.date_published)}
-                  excerpt={post.attributes.excerpt}
-                  tags={post.attributes.portfolio_blog_tags.data.map(
-                    (tag) => tag.attributes.tag
-                  )}
-                  url={`/blog/article/${post.attributes.slug}`}
-                />
-                <hr className="my-8" />
-              </div>
-            ))}
+      {data.data.length === 0 && (
+        <section className=" md:flex gap-12">
+          <section className="prose">
+            <h2>No blog posts found.</h2>
+            <BackButton text="Go Back" className="btn btn-sm" />
           </section>
-          <div>
-            <div className="flex w-full text-primary text-2xl font-bold mb-8">
-              {Number(params.slug) > 1 && (
-                <div className="mr-auto">
-                  <Link
-                    href={`/blog/${Number(params.slug) - 1}${
-                      searchParams.archive
-                        ? `?archive=${searchParams.archive}`
-                        : ""
-                    }`}
-                  >
-                    <span className="hover:underline">Previous</span>
-                  </Link>
-                </div>
-              )}
-              {Number(params.slug) < data.meta.pagination.pageCount && (
-                <div className="ml-auto">
-                  <Link
-                    href={`/blog/${Number(params.slug) + 1}${
-                      searchParams.archive
-                        ? `?archive=${searchParams.archive}`
-                        : ""
-                    }`}
-                  >
-                    <span className="hover:underline">Next</span>
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
+          <ArchiveCard data={archiveData} />
         </section>
+      )}
+      {data.data.length > 0 && (
+        <section className=" md:flex gap-12">
+          <section>
+            <section>
+              {data.data.map((post) => (
+                <div key={`blog-${post.id}`}>
+                  <BlogCard
+                    title={post.attributes.title}
+                    date={new Date(post.attributes.date_published)}
+                    excerpt={post.attributes.excerpt}
+                    tags={post.attributes.portfolio_blog_tags.data.map(
+                      (tag) => tag.attributes.tag
+                    )}
+                    url={`/blog/article/${post.attributes.slug}`}
+                  />
+                  <hr className="my-8" />
+                </div>
+              ))}
+            </section>
+            <div>
+              <div className="flex w-full text-primary text-2xl font-bold mb-8">
+                {Number(params.slug) > 1 && (
+                  <div className="mr-auto">
+                    <Link
+                      href={`/blog/${Number(params.slug) - 1}${
+                        searchParams.archive
+                          ? `?archive=${searchParams.archive}`
+                          : ""
+                      }`}
+                    >
+                      <span className="hover:underline">Previous</span>
+                    </Link>
+                  </div>
+                )}
+                {Number(params.slug) < data.meta.pagination.pageCount && (
+                  <div className="ml-auto">
+                    <Link
+                      href={`/blog/${Number(params.slug) + 1}${
+                        searchParams.archive
+                          ? `?archive=${searchParams.archive}`
+                          : ""
+                      }`}
+                    >
+                      <span className="hover:underline">Next</span>
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
 
-        <ArchiveCard data={archiveData} />
-      </section>
+          <ArchiveCard data={archiveData} />
+        </section>
+      )}
     </main>
   );
 }
