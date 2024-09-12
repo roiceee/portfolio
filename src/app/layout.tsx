@@ -7,7 +7,9 @@ import PageContainer from "@/components/containers/page-container";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
-  title: "John Roice Aldeza",
+  title: {
+    template: "%s | John Roice Aldeza"
+  },
   description: "John Roice Aldeza's Dev Portfolio",
 };
 

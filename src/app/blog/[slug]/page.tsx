@@ -5,11 +5,22 @@ import BlogCard from "@/components/card/blog-card";
 import { ArchivePreviewPage } from "@/types/archivetypes";
 import BlogTagsResponseData from "@/types/blogtagTypes";
 import { BlogPreviewPage } from "@/types/blogtypes";
+import { Metadata } from "next";
 import Link from "next/link";
 
 interface Props {
   params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export const metadata : Metadata = {
+  title: "Blog",
+  description: "A collection of my blog posts.",
+  openGraph: {
+    title: "Blog",
+    description: "A collection of my blog posts.",
+    type: "article",
+  },
 }
 
 export default async function Page({ params, searchParams }: Props) {

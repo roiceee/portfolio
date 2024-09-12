@@ -16,12 +16,14 @@ import profile from "public/profile.png";
 import riffrant from "public/riffrant.png";
 import devcon from "public/devcon.png";
 import style from "./image.module.css";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 //export metadata
 
 export const metadata: Metadata = {
-  title: "John Roice Aldeza",
+  title: {
+    absolute: "John Roice Aldeza"
+  },
   description:
     "Fullstack Developer | I like digging into the nitty-gritty of backend functions and making user interface that just make sense.",
   keywords: [
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="text-center">
       <section className="my-5 sm:my-10 md:my-24 lg:my-28 flex flex-col justify-center">

@@ -1,4 +1,16 @@
 import ContactForm from "@/components/contact-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contact John Roice Aldeza",
+  openGraph: {
+    title: "Contact | John Roice Aldeza",
+    description: "Contact John Roice Aldeza",
+    type: "article",
+    images: [{ url: "https://johnroice.vercel.app/profile.png" }],
+  },
+};
 
 function ContactPage() {
   return (
