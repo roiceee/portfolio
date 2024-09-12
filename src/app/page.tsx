@@ -16,6 +16,31 @@ import profile from "public/profile.png";
 import riffrant from "public/riffrant.png";
 import devcon from "public/devcon.png";
 import style from "./image.module.css";
+import { Metadata } from "next";
+
+//export metadata
+
+export const metadata: Metadata = {
+  title: "John Roice Aldeza",
+  description:
+    "Fullstack Developer | I like digging into the nitty-gritty of backend functions and making user interface that just make sense.",
+  keywords: [
+    "Fullstack Developer",
+    "Web Developer",
+    "Software Engineer",
+    "John Roice Aldeza",
+    "Developer",
+    "Freelance",
+    "Freelance Developer",
+  ],
+  openGraph: {
+    title: "John Roice Aldeza",
+    description:
+      "Fullstack Developer | I like digging into the nitty-gritty of backend functions and making user interface that just make sense.",
+    type: "profile",
+    images: [{ url: "https://johnroice.vercel.app/profile.png" }],
+  },
+};
 
 export default function Home() {
   return (
