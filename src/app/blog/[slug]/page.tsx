@@ -2,6 +2,7 @@ import BackButton from "@/components/back-button";
 import BlogTagDiv from "@/components/blog-tag-div";
 import ArchiveCard from "@/components/card/archive-card";
 import BlogCard from "@/components/card/blog-card";
+import LinkPersistQueryParams from "@/components/LinkPersistQueryParams";
 import { ArchivePreviewPage } from "@/types/archivetypes";
 import BlogTagsResponseData from "@/types/blogtagTypes";
 import { BlogPreviewPage } from "@/types/blogtypes";
@@ -13,7 +14,7 @@ interface Props {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export const metadata : Metadata = {
+export const metadata: Metadata = {
   title: "Blog",
   description: "A collection of my blog posts.",
   openGraph: {
@@ -21,7 +22,7 @@ export const metadata : Metadata = {
     description: "A collection of my blog posts.",
     type: "article",
   },
-}
+};
 
 export default async function Page({ params, searchParams }: Props) {
   const generateURL = () => {
@@ -127,28 +128,20 @@ export default async function Page({ params, searchParams }: Props) {
               <div className="flex w-full text-primary text-2xl font-bold mb-8">
                 {Number(params.slug) > 1 && (
                   <div className="mr-auto">
-                    <Link
-                      href={`/blog/${Number(params.slug) - 1}${
-                        searchParams.archive
-                          ? `?archive=${searchParams.archive}`
-                          : ""
-                      }`}
+                    <LinkPersistQueryParams
+                      href={`/blog/${Number(params.slug) - 1}`}
                     >
                       <span className="hover:underline">Previous</span>
-                    </Link>
+                    </LinkPersistQueryParams>
                   </div>
                 )}
                 {Number(params.slug) < data.meta.pagination.pageCount && (
                   <div className="ml-auto">
-                    <Link
-                      href={`/blog/${Number(params.slug) + 1}${
-                        searchParams.archive
-                          ? `?archive=${searchParams.archive}`
-                          : ""
-                      }`}
+                    <LinkPersistQueryParams
+                      href={`/blog/${Number(params.slug) + 1}`}
                     >
                       <span className="hover:underline">Next</span>
-                    </Link>
+                    </LinkPersistQueryParams>
                   </div>
                 )}
               </div>

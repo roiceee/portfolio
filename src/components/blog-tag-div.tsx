@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import BlogTagsResponseData from "@/types/blogtagTypes";
 import _ from "lodash";
@@ -14,7 +14,6 @@ export default function BlogTagDiv({
   className?: string;
 }) {
   const router = useRouter();
-  const pathname = usePathname(); // Get the current path
   const searchParams = useSearchParams(); // Get the current query parameters
   const [activeTags, setActiveTags] = useState<number[]>([]);
 
@@ -33,18 +32,28 @@ export default function BlogTagDiv({
     });
 
     // Navigate to the new URL with the active tags
-    router.push(`${pathname}?${urlParams.toString()}`);
+    router.push(`/blog/1?${urlParams.toString()}`);
   };
 
   const clearTags = () => {
     setActiveTags([]);
-    router.push(pathname); // Reset to the base URL without query parameters
+    router.push("/blog/1"); // Reset to the base URL without query parameters
   };
 
   // Sort content with active tags at the top
   const sortedData = [...content.data].sort((a, b) =>
     activeTags.includes(a.id) ? -1 : activeTags.includes(b.id) ? 1 : 0
   );
+
+  useEffect(() => {
+    //add to active state based on param
+
+    const tagParam = searchParams.getAll("tag");
+
+    if (tagParam) {
+      setActiveTags(tagParam.map((tag) => parseInt(tag)));
+    }
+  }, [searchParams]);
 
   return (
     <div className={className}>
@@ -54,7 +63,7 @@ export default function BlogTagDiv({
             className="flex gap-1 btn btn-outline btn-sm text-sm"
             onClick={clearTags}
           >
-            <X size={16}/>
+            <X size={16} />
             Clear
           </button>
         )}
