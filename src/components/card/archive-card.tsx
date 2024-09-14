@@ -28,7 +28,7 @@ export default function ArchiveCard({ data, className }: Props) {
     <aside className={`prose my-12 md:my-0 h-fit md:border-l pl-8 ${className}`}>
       <h2>Archive</h2>
       <div className="grid grid-cols-2 md:grid-cols-1 gap-x-2 md:gap-x-10">
-        <Link href={pathname}>All</Link>
+        <Link href={pathname} className="font-bold">All</Link>
         {data.data.reverse().map((archive) => (
           <Link
             key={`archive-${archive.id}`}
