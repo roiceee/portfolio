@@ -5,9 +5,11 @@ import { useSearchParams } from "next/navigation";
 export default function LinkPersistQueryParams({
   href,
   children,
+  className,
 }: {
   href: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   const searchParams = useSearchParams();
 
@@ -17,6 +19,7 @@ export default function LinkPersistQueryParams({
         pathname: href,
         search: searchParams.toString(),
       }}
+      className={className}
     >
       {children}
     </Link>

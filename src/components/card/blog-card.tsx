@@ -1,6 +1,7 @@
 import { formatDate } from "@/util/date";
 import _ from "lodash";
 import Link from "next/link";
+import LinkPersistQueryParams from "../LinkPersistQueryParams";
 
 interface Props {
   title: string;
@@ -13,12 +14,12 @@ interface Props {
 export default function BlogCard({ title, date, excerpt, tags, url }: Props) {
   return (
     <section className="prose">
-      <Link
+      <LinkPersistQueryParams
         href={url}
         className="no-underline hover:underline decoration-secondary"
       >
         <h1 className="text-secondary mb-2 font-medium">{title}</h1>
-      </Link>
+      </LinkPersistQueryParams>
       <span>
         <i>{formatDate(date)}</i>
       </span>
@@ -36,9 +37,9 @@ export default function BlogCard({ title, date, excerpt, tags, url }: Props) {
         )}
       </div>
       <div className="text-right mt-3">
-        <Link href={url} className="text-secondary">
+        <LinkPersistQueryParams href={url} className="text-secondary">
           Read More
-        </Link>
+        </LinkPersistQueryParams>
       </div>
     </section>
   );

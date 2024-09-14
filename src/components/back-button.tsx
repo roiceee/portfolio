@@ -1,15 +1,13 @@
-import Link from "next/link";
-
-
+import LinkPersistQueryParams from "./LinkPersistQueryParams";
 
 interface Props {
-  text?: string;className?: string;
+  text?: string;
+  className?: string;
 }
 
 export default function BackButton({ text, className }: Props) {
-  
   return (
-    <Link href={"/blog/1"} className={className}>
+    <LinkPersistQueryParams href={"/blog/1"} className={className}>
       {text ? (
         text
       ) : (
@@ -28,6 +26,6 @@ export default function BackButton({ text, className }: Props) {
           />
         </svg>
       )}
-    </Link>
+    </LinkPersistQueryParams>
   );
 }
