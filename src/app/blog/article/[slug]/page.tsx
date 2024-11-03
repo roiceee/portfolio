@@ -36,6 +36,9 @@ export async function generateMetadata({
     title: data.data[0].attributes.title,
     description: data.data[0].attributes.excerpt,
     date: data.data[0].attributes.date_published,
+    keywords: data.data[0].attributes.portfolio_blog_tags.data.map(
+      (tag) => tag.attributes.tag
+    ),
     openGraph: {
       title: data.data[0].attributes.title,
       description: data.data[0].attributes.excerpt,
