@@ -20,14 +20,14 @@ function MenuItems({ onClick }: MenuItemsProps) {
       }
       if (element.id === "/") {
         if (pathname === element.id) {
-          element.classList.add("nav-active");
+          element.classList.add("nav-active", "underline");
         } else {
-          element.classList.remove("nav-active");
+          element.classList.remove("nav-active", "underline");
         }
       } else if (pathname.includes(element.id)) {
-        element.classList.add("nav-active");
+        element.classList.add("nav-active", "underline");
       } else {
-        element.classList.remove("nav-active");
+        element.classList.remove("nav-active", "underline");
       }
       element.blur();
     });
@@ -40,12 +40,22 @@ function MenuItems({ onClick }: MenuItemsProps) {
     <>
       <li onClick={onClick}>
         <Link
-          className="font-bold text-lg active:bg-accent active:text-white"
+          className="font-bold text-lg active:bg-accent active:text-white "
           href={"/"}
           ref={(element) => items.current.push(element)}
           id="/"
         >
           Home
+        </Link>
+      </li>
+      <li onClick={onClick}>
+        <Link
+          className="font-bold text-lg active:bg-accent active:text-white"
+          href={"/skills-and-experience"}
+          ref={(element) => items.current.push(element)}
+          id="/skills-and-experience"
+        >
+          Skills &amp; Exp
         </Link>
       </li>
       <li onClick={onClick}>
