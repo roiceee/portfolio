@@ -77,7 +77,7 @@ export default function Page() {
         </div>
         <div className="mt-12">
           <a href={"/resume-aldeza.pdf"} target="_blank">
-            <button className=" btn btn-outline btn-accent btn-wide font-bold border-2">
+            <button className=" btn btn-outline btn-accent btn-wide font-bold border-2 text-lg btn-lg">
               View Resume
             </button>
           </a>
@@ -157,12 +157,12 @@ app."
       >
         <ExperienceCard
           imageNode={
-            <Image src={gdsc} alt="GDSC" width={60} placeholder="blur" />
+            <Image src={gdsc} alt="GDSC" placeholder="blur" className="w-full" />
           }
           title="Google Developer Student Clubs USeP Lead"
           year="2023-2024"
           expand={
-            <div className="text-start prose text-sm md:text-base">
+            <div className="text-start prose text-sm md:text-base max-w-none">
               <div>
                 I became the Google DSC Lead of University of Southeastern
                 Philippines. This leadership role allowed me to cultivate a
@@ -203,14 +203,14 @@ app."
             <Image
               src={postman}
               alt="Postman Student Leader"
-              width={60}
               placeholder="blur"
+              className="w-full"
             />
           }
           title="Postman Student Leader"
           year="2023-2024"
           expand={
-            <div className="text-start prose text-sm md:text-base">
+            <div className="text-start prose text-sm md:text-base max-w-none">
               <div>
                 Being a Postman Student Leader, I was able to share my knowledge
                 and passion for API development and testing to fellow students.
