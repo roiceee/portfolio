@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="emerald" className={font.className}>
+    <html lang="en" data-theme="lofi" className={font.className}>
       <body>
         <div
           className="flex flex-col justify-start gap-1 relative"
