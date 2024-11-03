@@ -23,11 +23,11 @@ function ExperienceCard({
 
   return (
     <div
-      className="relative rounded-xl border-2 p-5 select-none hover:border-secondary w-full max-w-2xl mx-auto"
+      className="relative rounded-xl border-2 p-5 select-none hover:border-secondary w-full max-w-4xl mx-auto"
       onClick={toggleExpand}
     >
       <div className="flex gap-5 mb-4">
-        <div>{imageNode}</div>
+        <div className="min-w-[40px] w-[40px] sm:min-w-[100px] sm:w-[100px]">{imageNode}</div>
         <div className="text-start">
           <h3 className="text-xl font-semibold">{title}</h3>
           <div className="mb-2">{year}</div>
