@@ -1,10 +1,9 @@
-import Navbar from "@/components/navbar/navbar";
-import "./globals.css";
-import Footer from "@/components/footer/footer";
-import Script from "next/script";
-import { Lato } from "next/font/google";
 import PageContainer from "@/components/containers/page-container";
+import Footer from "@/components/footer/footer";
+import Navbar from "@/components/navbar/navbar";
 import { Analytics } from "@vercel/analytics/react";
+import { Lato } from "next/font/google";
+import "./globals.css";
 
 export const metadata = {
   title: {
