@@ -2,17 +2,17 @@ import PageContainer from "@/components/containers/page-container";
 import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
 import { Analytics } from "@vercel/analytics/react";
-import { Lato } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
   title: {
-    template: "%s | John Roice Aldeza"
+    template: "%s | John Roice Aldeza",
   },
   description: "John Roice Aldeza's Dev Portfolio",
 };
 
-const font = Lato({ subsets: ["latin"], weight: "400" });
+const font = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function RootLayout({
   children,
