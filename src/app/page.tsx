@@ -15,14 +15,13 @@ import postman from "public/postman.png";
 import profile from "public/profile.png";
 import riffrant from "public/riffrant.png";
 import devcon from "public/devcon.png";
-import style from "./image.module.css";
 import type { Metadata } from "next";
 
 //export metadata
 
 export const metadata: Metadata = {
   title: {
-    absolute: "John Roice Aldeza"
+    absolute: "John Roice Aldeza",
   },
   description:
     "Fullstack Developer | I like digging into the nitty-gritty of backend functions and making user interface that just make sense.",
@@ -55,7 +54,7 @@ export default function Page() {
               alt="profile picture"
               width={280}
               height={280}
-              className={style.profileImage + " rounded-full"}
+              className={"h-[200px] w-[200px] sm:h-[280px] sm:w-[280px] border-4 rounded-md border-black"}
             />
           </div>
 
@@ -157,7 +156,12 @@ app."
       >
         <ExperienceCard
           imageNode={
-            <Image src={gdsc} alt="GDSC" placeholder="blur" className="w-full" />
+            <Image
+              src={gdsc}
+              alt="GDSC"
+              placeholder="blur"
+              className="w-full"
+            />
           }
           title="Google Developer Student Clubs USeP Lead"
           year="2023-2024"
