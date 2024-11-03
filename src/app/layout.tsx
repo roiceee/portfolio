@@ -6,10 +6,29 @@ import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
+
   title: {
+    default: "John Roice Aldeza",
     template: "%s | John Roice Aldeza",
   },
   description: "John Roice Aldeza's Dev Portfolio",
+  keywords: [
+    "John Roice Aldeza",
+    "John Roice Aldeza's Dev Portfolio",
+    "John Roice Aldeza's Portfolio",
+    "John Roice Aldeza's Projects",
+    "John Roice Aldeza's Skills",
+    "John Roice Aldeza's Experience",
+    "John Roice Aldeza's Certifications",
+    "John Roice Aldeza's Education",
+    "John Roice Aldeza's Contact",
+    "full-stack developer",
+    "web developer",
+    "software developer",
+    "software engineer",
+    "front-end developer",
+    "back-end developer",
+  ],
 };
 
 const font = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "700"] });
