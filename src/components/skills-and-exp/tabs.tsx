@@ -39,7 +39,7 @@ export default function Tabs() {
   return (
     <div className="tabs-container">
       {/* Tab List */}
-      <div role="tablist" className="tab-list">
+      <div role="tablist" className="tab-list mb-6">
         {tabs.map((tab, index) => (
           <button
             key={index}
@@ -53,7 +53,7 @@ export default function Tabs() {
       </div>
 
       {/* Tab Content */}
-      <div className="tab-content prose max-w-none">
+      <div className="tab-content prose xl:prose-lg max-w-none">
         {tabContents[activeTab]}
       </div>
 

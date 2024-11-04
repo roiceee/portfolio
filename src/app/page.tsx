@@ -16,6 +16,9 @@ import profile from "public/profile.png";
 import riffrant from "public/riffrant.png";
 import devcon from "public/devcon.png";
 import type { Metadata } from "next";
+import ProjectsTab from "@/components/skills-and-exp/projects-tab";
+import ExperienceTab from "@/components/skills-and-exp/experience-tab";
+import TechstackTab from "@/components/skills-and-exp/techstack-tab";
 
 //export metadata
 
@@ -47,18 +50,20 @@ export default function Page() {
   return (
     <main className="text-center">
       <section className="my-5 sm:my-10 md:my-24 lg:my-28 flex flex-col justify-center">
-        <div className="flex flex-col items-center md:flex-row-reverse md:gap-32 md:justify-between">
+        <div className="flex flex-col items-center lg:flex-row-reverse lg:gap-32 lg:justify-between">
           <div>
             <Image
               src={profile}
               alt="profile picture"
               width={280}
               height={280}
-              className={"h-[200px] w-[200px] sm:h-[280px] sm:w-[280px] border-4 rounded-md border-black"}
+              className={
+                "h-[200px] w-[200px] sm:h-[250px] sm:w-[250px] border-4 rounded-md border-black"
+              }
             />
           </div>
 
-          <div className="mt-4 md:mt-0 md:text-left">
+          <div className="mt-4 lg:mt-0 lg:text-left">
             <div className="my-2 text-3xl md:text-4xl lg:text-5xl font-bold">
               John Roice Aldeza
             </div>
@@ -103,145 +108,17 @@ export default function Page() {
         </div>
       </section>
 
-      <PageSection className="py-16" title="Projects">
-        <div className="grid md:grid-cols-2 gap-3">
-          <ProjectCard
-            imageSrc={devcon}
-            title="DEVCON Summit Event Platform"
-            description="Event platform which allows users to access event-related resources, and participate in activities through the
-app."
-            altText="DEVCON"
-            repoLink="https://github.com/nedpals/summit-platform"
-            role="Contributor"
-          />
-          <ProjectCard
-            imageSrc={riffrant}
-            title="Riffrant"
-            description="Social media application to express your opinions. "
-            altText="Riffrant"
-            demoLink="https://riffrant.vercel.app"
-            repoLink="https://github.com/roiceee/riffrant"
-            role="Sole Developer"
-          />
-          <ProjectCard
-            imageSrc={phraseapi}
-            title="Phrase API"
-            description="Share and look up for text-related data, and has exposed REST API endpoints
-                 for integrating with your applications."
-            altText="Phrase API"
-            demoLink="https://phraseapi.vercel.app"
-            repoLink="https://github.com/roiceee/phrase-api-client"
-            role="Sole Developer"
-          />
-          <ProjectCard
-            imageSrc={organize}
-            title="Organize"
-            description="Task management progressive web application (PWA), accessible through web, desktop, and mobile."
-            altText="Organize"
-            demoLink="https://organizeapp.vercel.app"
-            repoLink="https://github.com/roiceee/organize"
-            role="Sole Developer"
-          />
-        </div>
-        <div className="text-accent text-lg mt-4 hover:underline">
-          <Link href="https://github.com/roiceee" target="_blank">
-            See more projects on GitHub.
-          </Link>
-        </div>
-      </PageSection>
+      <div className="py-16 prose xl:prose-lg text-left mx-auto max-w-none">
+        <ExperienceTab />
+      </div>
 
-      <PageSection
-        title="Community Leadership Experience"
-        className="py-20 flex flex-col gap-4"
-      >
-        <ExperienceCard
-          imageNode={
-            <Image
-              src={gdsc}
-              alt="GDSC"
-              placeholder="blur"
-              className="w-full"
-            />
-          }
-          title="Google Developer Student Clubs USeP Lead"
-          year="2023-2024"
-          expand={
-            <div className="text-start prose text-sm md:text-base max-w-none">
-              <div>
-                I became the Google DSC Lead of University of Southeastern
-                Philippines. This leadership role allowed me to cultivate a
-                passion for technology and collaboration, and it played a
-                pivotal part in my journey in tech.
-              </div>
-              <ul>
-                <li>
-                  <b className="text-accent">Team Leadership:</b> I led a team
-                  of driven students, fostering a culture of innovation and
-                  teamwork. Together, we embarked on a variety of projects, from
-                  web and mobile app development to machine learning and AI
-                  initiatives.
-                </li>
-                <li>
-                  <b className="text-accent">Technical Workshops:</b> Organized
-                  and conducted technical workshops and seminars to empower club
-                  members with the latest industry knowledge and hands-on
-                  experience.
-                </li>
-                <li>
-                  <b className="text-accent">Community Engagement:</b> Nurtured
-                  a vibrant tech community within USeP by organizing hackathons,
-                  coding competitions, and tech talks.
-                </li>
-                <li>
-                  <b className="text-accent">Collaboration:</b> Worked closely
-                  with industry partners and organizations to bring projects and
-                  insights to club members.
-                </li>
-              </ul>
-            </div>
-          }
-        />
+      <div className="py-16 prose xl:prose-lg text-left mx-auto max-w-none">
+        <TechstackTab />
+      </div>
 
-        <ExperienceCard
-          imageNode={
-            <Image
-              src={postman}
-              alt="Postman Student Leader"
-              placeholder="blur"
-              className="w-full"
-            />
-          }
-          title="Postman Student Leader"
-          year="2023-2024"
-          expand={
-            <div className="text-start prose text-sm md:text-base max-w-none">
-              <div>
-                Being a Postman Student Leader, I was able to share my knowledge
-                and passion for API development and testing to fellow students.
-                I also learned a lot about API development and testing, and how
-                it can help developers build better software.
-              </div>
-              <ul>
-                <li>
-                  <b className="text-accent">Technical Workshops:</b> Organized
-                  and conducted API development and testing workshops to empower
-                  students with the latest industry knowledge and hands-on
-                  experience.
-                </li>
-                <li>
-                  <b className="text-accent">Study Jams:</b> Collaborated with
-                  fellow Postman Student Leaders to conduct study jams and share
-                  our knowledge and passion for API development and testing.
-                </li>
-              </ul>
-            </div>
-          }
-        />
-      </PageSection>
-
-      <PageSection className="py-20" title="Used Technologies">
-        <TechStack />
-      </PageSection>
+      <div className="py-16 prose xl:prose-lg text-left mx-auto max-w-none">
+        <ProjectsTab />
+      </div>
 
       <PageSection className="py-20 pb-28" title="Let's build your ideas!">
         <p className="text-lg">

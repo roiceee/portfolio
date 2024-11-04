@@ -27,7 +27,7 @@ export default function CommunityTab() {
   ];
   return (
     <div>
-      <h2>Community</h2>
+      <h1>Community</h1>
       {communityData.map((community, index) => (
         <div key={index}>
           <h3>{community.title}</h3>

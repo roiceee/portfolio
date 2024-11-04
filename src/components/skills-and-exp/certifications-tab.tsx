@@ -20,7 +20,7 @@ export default function CertificationsTab() {
 
   return (
     <div>
-      <h2>Certifications</h2>
+      <h1>Certifications</h1>
 
       {certificationsData.map((certification, index) => (
         <div
@@ -53,6 +53,7 @@ export default function CertificationsTab() {
               </button>
             </a>
           </div>
+          {index < certificationsData.length - 1 && <hr />}
         </div>
       ))}
     </div>

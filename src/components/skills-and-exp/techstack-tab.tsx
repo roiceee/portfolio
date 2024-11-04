@@ -68,8 +68,8 @@ export default function TechstackTab() {
 
   return (
     <div>
-      <h2>Technical Skills</h2>
-      <div className="mb-6 grid lg:grid-cols-2 gap-10">
+      <h1>Technical Skills</h1>
+      <div className="grid lg:grid-cols-2 gap-8">
           {techstackData.map((section, index) => (
             <TechstackSection
               key={index}
@@ -92,7 +92,7 @@ function TechstackSection({
   return (
     <div >
       <h4 className="text-xl">{category}:</h4>
-      <div className="flex flex-wrap gap-6 mt-4 not-prose max-w-[400px]">
+      <div className="flex flex-wrap gap-6 mt-4 not-prose">
         {items.map((item, index) => (
           <div key={index} className="flex flex-col items-center gap-4 text-lg">
             {item.icon && <div className="h-[50px] aspect-square">{item.icon}</div>}

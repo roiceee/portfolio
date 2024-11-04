@@ -44,11 +44,11 @@ export default function ProjectsTab() {
   
     return (
       <div>
-        <h2>Projects</h2>
+        <h1>Projects</h1>
   
         {projectsData.map((project, index) => (
           <div key={index} className="mb-8">
-            <h3 className="text-xl font-semibold">{project.title}</h3>
+            <h3>{project.title}</h3>
             <p className="mb-1">{project.description}</p>
             <p className="font-semibold">Role: {project.role}</p>
             <div className="flex flex-wrap gap-2 mt-2">
@@ -80,8 +80,10 @@ export default function ProjectsTab() {
                   <button className="btn btn-secondary">Live View</button>
                 </a>
               )}
+               {index < projectsData.length - 1 && <hr />}
             </div>
           </div>
+          
         ))}
       </div>
     );
