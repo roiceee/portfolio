@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     description: "John Roice Aldeza's Dev Portfolio",
     images: [{ url: "https://johnroice.vercel.app/profile.png" }],
   },
+  other: {
+    "google-site-verification": "iAtxBoEBLzpHud-qRt-CaJnKqp04VaFSNtpbF3hXxOs",
+  },
 };
 
 const font = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "700"] });
