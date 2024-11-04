@@ -26,7 +26,7 @@ export default function CertificationsTab() {
         <div
           key={index}
           style={{ marginBottom: "20px" }}
-          className="flex flex-col md:flex-row md:gap-4"
+          className="flex flex-col md:flex-row md:gap-10"
         >
           <div>
             <Image
