@@ -35,6 +35,7 @@ export default function CommunityTab() {
             <strong>{community.duration}</strong>
           </p>
           <p>{community.description}</p>
+          {index < communityData.length - 1 && <hr />}
         </div>
       ))}
     </div>
