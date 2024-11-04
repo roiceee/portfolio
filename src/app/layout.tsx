@@ -4,9 +4,9 @@ import Navbar from "@/components/navbar/navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import { Metadata } from "next";
 
-export const metadata = {
-
+export const metadata: Metadata = {
   title: {
     default: "John Roice Aldeza",
     template: "%s | John Roice Aldeza",
@@ -29,6 +29,11 @@ export const metadata = {
     "front-end developer",
     "back-end developer",
   ],
+  openGraph: {
+    title: "John Roice Aldeza",
+    description: "John Roice Aldeza's Dev Portfolio",
+    images: [{ url: "https://johnroice.vercel.app/profile.png" }],
+  },
 };
 
 const font = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "700"] });
