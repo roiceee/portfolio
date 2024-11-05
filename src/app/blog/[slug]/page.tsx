@@ -6,9 +6,7 @@ import LinkPersistQueryParams from "@/components/LinkPersistQueryParams";
 import { ArchivePreviewPage } from "@/types/archivetypes";
 import BlogTagsResponseData from "@/types/blogtagTypes";
 import { BlogPreviewPage } from "@/types/blogtypes";
-import { X } from "lucide-react";
 import { Metadata } from "next";
-import Link from "next/link";
 
 interface Props {
   params: { slug: string };
@@ -74,7 +72,7 @@ export default async function Page({ params, searchParams }: Props) {
 
   const tagData: BlogTagsResponseData | undefined = await tagRes.json();
 
-  if (!data || !archiveData) {
+  if (!data || !archiveData || !data.data) {
     return <div>Not found</div>;
   }
 
