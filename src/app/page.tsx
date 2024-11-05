@@ -81,7 +81,7 @@ export default function Page() {
         </div>
         <div className="mt-12">
           <a href={"/resume-aldeza.pdf"} target="_blank">
-            <button className=" btn btn-outline btn-accent btn-wide font-bold border-2 text-lg btn-lg">
+            <button className=" btn btn-accent btn-wide font-bold border-2 text-lg btn-lg">
               View Resume
             </button>
           </a>
