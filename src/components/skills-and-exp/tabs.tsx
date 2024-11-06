@@ -1,21 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import CertificationsTab from "./certifications-tab";
+import CommunityTab from "./community-tab";
 import ExperienceTab from "./experience-tab";
 import ProjectsTab from "./projects-tab";
 import TechstackTab from "./techstack-tab";
-import CertificationsTab from "./certifications-tab";
-import CommunityTab from "./community-tab";
 
 export default function Tabs() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(0);
-  const tabs = [
-    "Experience",
-    "Projects",
-    "Certifications",
-    "Tech Stack",
-    "Community",
-  ];
+  const tabs = useMemo(() => {
+    return [
+      { name: "Experience", id: "experience" },
+      { name: "Projects", id: "projects" },
+      { name: "Certifications", id: "certifications" },
+      { name: "Tech Stack", id: "techstack" },
+      { name: "Community", id: "community" },
+    ];
+  }, []);
 
   // Content for each tab
   const tabContents = [
@@ -36,6 +41,12 @@ export default function Tabs() {
     </div>,
   ];
 
+  // Function to change URL hash when tab is clicked
+  const handleTabClick = (index: number) => {
+    setActiveTab(index);
+    router.push(`/skills-and-experience#${tabs[index].id}`);
+  };
+
   return (
     <div className="tabs-container">
       {/* Tab List */}
@@ -45,9 +56,9 @@ export default function Tabs() {
             key={index}
             role="tab"
             className={`tab-item ${activeTab === index ? "active" : ""}`}
-            onClick={() => setActiveTab(index)}
+            onClick={() => handleTabClick(index)}
           >
-            {tab}
+            {tab.name}
           </button>
         ))}
       </div>

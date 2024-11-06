@@ -1,4 +1,10 @@
-export default function CommunityTab() {
+import Link from "next/link";
+
+export default function CommunityTab({
+  isPreview = false,
+}: {
+  isPreview?: boolean;
+}) {
   const communityData = [
     {
       title: "Google Developer Student Clubs USeP Lead",
@@ -25,10 +31,15 @@ export default function CommunityTab() {
         "As a Postman Student Leader, I was able to share my knowledge and passion for API development and testing with fellow students. I also learned a lot about API development and testing, and how it can help developers build better software.",
     },
   ];
+
+  const displayedCommunityData = isPreview
+    ? communityData.slice(0, 3)
+    : communityData;
+
   return (
     <div>
       <h1>Community</h1>
-      {communityData.map((community, index) => (
+      {displayedCommunityData.map((community, index) => (
         <div key={index}>
           <h3>{community.title}</h3>
           <p>
@@ -38,6 +49,16 @@ export default function CommunityTab() {
           {index < communityData.length - 1 && <hr />}
         </div>
       ))}
+      {isPreview && (
+        <div className="text-center">
+          <Link
+            href="/skills-and-experience#community"
+            className="underline font-bold"
+          >
+            See more
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

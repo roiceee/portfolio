@@ -1,4 +1,8 @@
-export default function ExperienceTab() {
+import Link from "next/link";
+
+export default function ExperienceTab(
+  { isPreview = false }: { isPreview?: boolean }
+) {
   const experienceData = [
     {
       title: "Software Developer",
@@ -10,7 +14,7 @@ export default function ExperienceTab() {
         "Translated Figma designs into responsive and interactive web interfaces.",
         "Set up a headless CMS on EC2 instances to manage content effectively.",
       ],
-    },    
+    },
     {
       title: "Freelance Developer",
       duration: "June 2023 - July 2024",
@@ -20,12 +24,15 @@ export default function ExperienceTab() {
         "Worked closely with clients to gather requirements and deliver customized solutions.",
       ],
     },
+    // Add more experiences here if needed
   ];
+
+  const displayedExperiences = isPreview ? experienceData.slice(0, 3) : experienceData;
 
   return (
     <div>
       <h1>Experience</h1>
-      {experienceData.map((experience, index) => (
+      {displayedExperiences.map((experience, index) => (
         <div key={index}>
           <h3 className="mb-0">{experience.title}</h3>
           {experience.company && <p className="my-0">{experience.company}</p>}
@@ -36,9 +43,16 @@ export default function ExperienceTab() {
               <li key={idx}>{item}</li>
             ))}
           </ul>
-          {index < experienceData.length - 1 && <hr />}
+          {index < displayedExperiences.length - 1 && <hr />}
         </div>
       ))}
+      {isPreview && (
+        <div className="text-center">
+          <Link href="/skills-and-experience#experience" className="underline font-bold">
+            See more
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
