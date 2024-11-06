@@ -28,7 +28,7 @@ function ContactPage() {
           </section>
           <section>
             <a href="mailto:jroicealdeza@gmail.com">
-              <button className="btn btn-outline btn-accent btn-wide border-2">
+              <button className="btn btn-accent btn-wide border-2">
                 Mail me!
               </button>
             </a>

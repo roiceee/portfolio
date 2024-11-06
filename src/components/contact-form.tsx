@@ -109,7 +109,7 @@ export default function ContactForm() {
           ></textarea>
         </label>
         <div className="mt-4">
-          <button className="btn btn-wide btn-outline btn-primary border-2">
+          <button className="btn btn-wide btn-primary border-2">
             {isSending ? "Sending..." : "Send"}
           </button>
         </div>
