@@ -6,7 +6,7 @@ import NavbarDropdown from "./navbar-dropdown";
 function Navbar() {
   return (
     <section className="navbar sticky top-0 border-b w-full bg-white z-50">
-      <div className="navbar px-4 max-w-7xl mx-auto">
+      <div className="navbar px-4 max-w-[1500px] mx-auto">
         <div className="navbar-start">
           <Link href={"/"}>
             <RoiceText/>
