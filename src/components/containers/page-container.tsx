@@ -5,7 +5,7 @@ interface PageContainerProps {
 
 function PageContainer({children, className}: PageContainerProps) {
     return ( 
-        <div className={`container max-w-7xl ${className}`}>
+        <div className={`container max-w-[1600px] ${className}`}>
             {children}
         </div>
      );
