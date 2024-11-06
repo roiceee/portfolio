@@ -1,24 +1,16 @@
-import ExperienceCard from "@/components/card/experience-card";
-import ProjectCard from "@/components/card/project-card";
 import PageSection from "@/components/containers/page-section";
 import SocialLink from "@/components/footer/social-link";
-import TechStack from "@/components/techstack-card/techstack";
+import CertificationsTab from "@/components/skills-and-exp/certifications-tab";
+import CommunityTab from "@/components/skills-and-exp/community-tab";
+import ExperienceTab from "@/components/skills-and-exp/experience-tab";
+import ProjectsTab from "@/components/skills-and-exp/projects-tab";
+import TechstackTab from "@/components/skills-and-exp/techstack-tab";
+import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import mail from "public/envelope.svg";
-import gdsc from "public/gdsc.png";
 import github from "public/github.svg";
 import linkedin from "public/linkedin.svg";
-import organize from "public/organize.png";
-import phraseapi from "public/phraseapi.png";
-import postman from "public/postman.png";
 import profile from "public/profile.png";
-import riffrant from "public/riffrant.png";
-import devcon from "public/devcon.png";
-import type { Metadata } from "next";
-import ProjectsTab from "@/components/skills-and-exp/projects-tab";
-import ExperienceTab from "@/components/skills-and-exp/experience-tab";
-import TechstackTab from "@/components/skills-and-exp/techstack-tab";
 
 //export metadata
 
@@ -91,33 +83,43 @@ export default function Page() {
             link="https://www.linkedin.com/in/johnroicealdeza"
             imageSrc={linkedin}
             altText="linkedIn"
-            size={30}
+            size={35}
           />
           <SocialLink
             link="https://www.github.com/roiceee"
             imageSrc={github}
             altText="github"
-            size={30}
+            size={35}
           />
           <SocialLink
             link="mailto:jroicealdeza@gmail.com"
             imageSrc={mail}
             altText="mail"
-            size={30}
+            size={35}
           />
         </div>
       </section>
 
-      <div className="py-16 prose xl:prose-lg text-left mx-auto max-w-none">
-        <ExperienceTab />
+      <div className="xl:grid grid-cols-2 gap-12">
+        <div className="py-16 prose text-left mx-auto max-w-none">
+          <ExperienceTab />
+        </div>
+        <div className="py-16 prose text-left mx-auto max-w-none">
+          <CommunityTab isPreview />
+        </div>
       </div>
 
-      <div className="py-16 prose xl:prose-lg text-left mx-auto max-w-none">
+      <div className="xl:grid grid-cols-2 gap-12">
+        <div className="py-16 prose text-left mx-auto max-w-none">
+          <ProjectsTab />
+        </div>
+        <div className="py-16 prose text-left mx-auto max-w-none">
+          <CertificationsTab />
+        </div>
+      </div>
+
+      <div className="py-16 prose text-left mx-auto max-w-none">
         <TechstackTab />
-      </div>
-
-      <div className="py-16 prose xl:prose-lg text-left mx-auto max-w-none">
-        <ProjectsTab />
       </div>
 
       <PageSection className="py-20 pb-28" title="Let's build your ideas!">
