@@ -105,7 +105,7 @@ export default function Page() {
           <ExperienceTab />
         </div>
         <div className="py-16 prose text-left mx-auto max-w-none">
-          <CommunityTab isPreview />
+          <CertificationsTab />
         </div>
       </div>
 
@@ -114,7 +114,7 @@ export default function Page() {
           <ProjectsTab />
         </div>
         <div className="py-16 prose text-left mx-auto max-w-none">
-          <CertificationsTab />
+          <CommunityTab isPreview />
         </div>
       </div>
 
