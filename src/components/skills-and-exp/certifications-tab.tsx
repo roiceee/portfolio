@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import awsCertImg from "/public/certs/aws/aws-certified-cloud-practitioner.png";
 import projCertImg from "/public/certs/project-management/cert.png";
+import Link from "next/link";
 
 export default function CertificationsTab({
   isPreview = false,
@@ -9,19 +8,6 @@ export default function CertificationsTab({
   isPreview?: boolean;
 }) {
   const certificationsData = [
-    
-    {
-      title: "AWS Certified Cloud Practitioner",
-      image: awsCertImg,
-      description: "I learned how to utilize AWS services to create,deploy, and maintain applications.",
-      bullets: [
-        "Understanding of AWS services",
-        "Skills in creating and maintaining applications",
-        "Knowledge of AWS pricing and support",
-      ],
-      link:"https://www.credly.com/badges/2386b9e9-72c1-48ad-88aa-8b11a3890e13/public_url" 
-    },
-    // Add more certifications here
     {
       title: "Foundations of Project Management",
       image: projCertImg,
@@ -32,9 +18,8 @@ export default function CertificationsTab({
         "Comparison of various project management methodologies",
         "Skills in time and resource management",
       ],
-      link: "https://coursera.org/share/f6a250e27328dca93ec7e1480fa826d4",
+      link: "/certs/project-management/cert.pdf",
     },
-    
     // Add more certifications here
   ];
 
@@ -71,7 +56,7 @@ export default function CertificationsTab({
               <Image
                 src={certification.image}
                 alt={`Certification ${index + 1}`}
-                className="w-full max-w-[200px] h-auto"
+                className="w-full max-w-[500px] h-auto"
               />
             </div>
           </div>
