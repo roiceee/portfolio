@@ -13,7 +13,7 @@ export default function CertificationsTab({
     {
       title: "AWS Certified Cloud Practitioner",
       image: awsCertImg,
-      description: "I learned how to utilize AWS services to create,deploy, and maintain applications.",
+      description: "I learned how to utilize AWS services to create, deploy, and maintain applications.",
       bullets: [
         "Understanding of AWS services",
         "Skills in creating and maintaining applications",
