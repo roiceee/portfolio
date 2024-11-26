@@ -2,6 +2,7 @@ import { formatDate } from "@/util/date";
 import _ from "lodash";
 import Link from "next/link";
 import LinkPersistQueryParams from "../LinkPersistQueryParams";
+import { Suspense } from "react";
 
 interface Props {
   title: string;
@@ -14,12 +15,14 @@ interface Props {
 export default function BlogCard({ title, date, excerpt, tags, url }: Props) {
   return (
     <section className="prose">
-      <LinkPersistQueryParams
-        href={url}
-        className="no-underline hover:underline decoration-secondary"
-      >
-        <h1 className="text-secondary mb-2 font-medium">{title}</h1>
-      </LinkPersistQueryParams>
+      <Suspense fallback={<></>}>
+        <LinkPersistQueryParams
+          href={url}
+          className="no-underline hover:underline decoration-secondary"
+        >
+          <h1 className="text-secondary mb-2 font-medium">{title}</h1>
+        </LinkPersistQueryParams>
+      </Suspense>
       <span>
         <i>{formatDate(date)}</i>
       </span>
@@ -37,9 +40,11 @@ export default function BlogCard({ title, date, excerpt, tags, url }: Props) {
         )}
       </div>
       <div className="text-right mt-3">
-        <LinkPersistQueryParams href={url} className="text-secondary">
-          Read More
-        </LinkPersistQueryParams>
+        <Suspense fallback={<></>}>
+          <LinkPersistQueryParams href={url} className="text-secondary">
+            Read More
+          </LinkPersistQueryParams>
+        </Suspense>
       </div>
     </section>
   );

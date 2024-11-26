@@ -2,16 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: { slug: string[] } }
 ) {
   try {
-    const searchParams = request.nextUrl.searchParams;
 
-    const archive = searchParams.get("archive");
+    console.log(params);
+    const pageNum = params.slug[0] ?? "1";
 
-    const tags = searchParams.getAll("tag");
-
-    const pageNum = params.slug ? params.slug : "1";
+    const tagId = params.slug[1] ?? undefined;
 
     const url = new URL(`${process.env.STRAPI_URL}/api/portfolio-blogs`);
 
@@ -24,20 +22,8 @@ export async function GET(
     url.searchParams.append("sort", "date_published:desc");
     url.searchParams.append("populate", "*");
 
-    if (archive) {
-      url.searchParams.append(
-        "filters[portfolio_blog_archive][id][$eq]",
-        archive
-      );
-    }
-
-    if (tags) {
-      if (tags instanceof Array) {
-        tags.forEach((tag) => {
-          url.searchParams.append("filters[portfolio_blog_tags][id][$eq]", tag);
-        });
-      }
-      
+    if (tagId) {
+          url.searchParams.append("filters[portfolio_blog_tags][id][$eq]", tagId);
     }
 
     //get blogs data

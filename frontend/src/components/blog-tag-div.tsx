@@ -9,70 +9,50 @@ import { X } from "lucide-react";
 export default function BlogTagDiv({
   content,
   className,
+  activeTagId
 }: {
   content: BlogTagsResponseData;
   className?: string;
+  activeTagId: string | undefined;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams(); // Get the current query parameters
-  const [activeTags, setActiveTags] = useState<number[]>([]);
+  const [activeTag, setActiveTag] = useState<number | null>(activeTagId ? Number(activeTagId) : null); // Track a single active tag
 
   const handleTagClick = (tagId: number) => {
-    const newActiveTags = activeTags.includes(tagId)
-      ? activeTags.filter((id) => id !== tagId)
-      : [...activeTags, tagId];
-
-    setActiveTags(newActiveTags);
-
-    // Construct the new URL with active tags
-    const urlParams = new URLSearchParams(searchParams.toString());
-    urlParams.delete("tag"); // Remove existing 'tag' params
-    newActiveTags.forEach((id) => {
-      urlParams.append("tag", id.toString());
-    });
-
-    // Navigate to the new URL with the active tags
-    router.push(`/blog/1?${urlParams.toString()}`);
+    const newActiveTag = activeTag === tagId ? null : tagId; // Toggle or set single active tag
+    setActiveTag(newActiveTag);
+    // Navigate to the new URL with the active tag
+    router.push(`/blog/page/1/${newActiveTag?.toString()}`);
   };
 
-  const clearTags = () => {
-    setActiveTags([]);
-    router.push("/blog/1"); // Reset to the base URL without query parameters
+  const clearTag = () => {
+    setActiveTag(null);
+    router.push("/blog/page/1"); // Reset to the base URL without query parameters
   };
 
-  // Sort content with active tags at the top
+  // Sort content with active tag at the top
   const sortedData = [...content.data].sort((a, b) =>
-    activeTags.includes(a.id) ? -1 : activeTags.includes(b.id) ? 1 : 0
+    activeTag === a.id ? -1 : activeTag === b.id ? 1 : 0
   );
 
   useEffect(() => {
-    //add to active state based on param
-
-    const tagParam = searchParams.getAll("tag");
-
+    // Update active tag based on the tag query parameter
+    const tagParam = searchParams.get("tag");
     if (tagParam) {
-      setActiveTags(tagParam.map((tag) => parseInt(tag)));
+      setActiveTag(parseInt(tagParam));
     }
   }, [searchParams]);
 
   return (
     <div className={className}>
-      <div className="flex flex-wrap items-center gap-2">
-        {activeTags.length > 0 && (
-          <button
-            className="flex gap-1 btn btn-outline btn-sm text-sm"
-            onClick={clearTags}
-          >
-            <X size={16} />
-            Clear
-          </button>
-        )}
+      <div className="flex flex-wrap md:flex-col items-start gap-2">
         {sortedData.map((value) => (
           <span
             className={`p-3 badge ${
-              activeTags.includes(value.id)
+              activeTag === value.id
                 ? ""
-                : "badge-outline hover:badge-ghost"
+                : "badge-outline hover:badge-ghost whitespace-nowrap"
             } cursor-pointer`}
             key={`index-1-${value.id}`}
             onClick={() => handleTagClick(value.id)}
