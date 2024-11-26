@@ -54,14 +54,12 @@ export default async function Page({ params, searchParams }: Props) {
   };
 
   const res: Response | undefined = await fetch(generateURL().toString(), {
-    cache: "no-store",
   });
 
   const data: BlogPreviewPage | undefined = await res.json();
 
   const archiveRes: Response | undefined = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/blog/archives`,
-    { cache: "no-store" }
   );
 
   const archiveData: ArchivePreviewPage | undefined = await archiveRes.json();

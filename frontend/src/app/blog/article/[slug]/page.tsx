@@ -11,7 +11,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const res: Response | undefined = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
-    { next: { revalidate: 180 } }
   );
 
   let data: ArticleResponse | undefined = await res.json();
@@ -57,8 +56,6 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: { slug: string } }) {
   const res: Response | undefined = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
-
-    { next: { revalidate: 180 } }
   );
 
   const data: ArticleResponse | undefined = await res.json();
