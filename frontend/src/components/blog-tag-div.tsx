@@ -23,7 +23,12 @@ export default function BlogTagDiv({
     const newActiveTag = activeTag === tagId ? null : tagId; // Toggle or set single active tag
     setActiveTag(newActiveTag);
     // Navigate to the new URL with the active tag
-    router.push(`/blog/page/1/${newActiveTag?.toString()}`);
+
+    if (newActiveTag) {
+      router.push(`/blog/page/1/${newActiveTag.toString()}`);
+    } else {
+      router.push("/blog/page/1"); // Reset to the base URL without query parameters
+    }
   };
 
   const clearTag = () => {

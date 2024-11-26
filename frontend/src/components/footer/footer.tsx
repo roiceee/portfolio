@@ -1,10 +1,8 @@
-import Image from "next/image";
-import logo from "public/roice-logo.png";
-import mail from "public/envelope.svg";
-import github from "public/github.svg";
-import linkedin from "public/linkedin.svg";
-import SocialLink from "./social-link";
+import mail from "/public/envelope.svg";
+import github from "/public/github.svg";
+import linkedin from "/public/linkedin.svg";
 import RoiceText from "../roice";
+import SocialLink from "./social-link";
 
 interface Props {
   className?: string;

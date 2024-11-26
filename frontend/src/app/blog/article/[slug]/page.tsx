@@ -7,10 +7,19 @@ import { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const slug = (await params).slug;
+
   const res: Response | undefined = await fetch(
-    `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
+    `${process.env.STRAPI_URL}/api/portfolio-blogs?filters[slug][$eq]=${slug}&populate=*`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    }
   );
 
   let data: ArticleResponse | undefined = await res.json();
@@ -53,14 +62,64 @@ export async function generateMetadata({
   } as Metadata;
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const res: Response | undefined = await fetch(
-    `${process.env.NEXT_PUBLIC_URL}/api/blog/article/${params.slug}`,
-  );
+export async function generateStaticParams() {
+  try {
+    const res = await fetch(
+      `${process.env.STRAPI_URL}/api/portfolio-blogs?fields[0]=slug`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
+        },
+      }
+    );
 
-  const data: ArticleResponse | undefined = await res.json();
+    const data = await res.json();
 
-  if (!data || !data.data[0]) {
+    return data.data.map((article: any) => ({
+      slug: article.attributes.slug,
+    }));
+  } catch {
+    return [];
+  }
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+
+  let res: Response | undefined;
+  let data: ArticleResponse | undefined;
+
+  if (!slug) {
+    return (
+      <section className="prose max-w-2xl mx-auto my-12">
+        <BackButton />
+        <h2>Content Not Found</h2>
+      </section>
+    );
+  }
+
+  try {
+    res = await fetch(
+      `${process.env.STRAPI_URL}/api/portfolio-blogs?filters[slug][$eq]=${slug}&populate=*`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    data = await res.json();
+  } catch {
+    data = undefined;
+  }
+
+  if (!data || data.data.length === 0) {
     return (
       <section className="prose max-w-2xl mx-auto my-12">
         <BackButton />

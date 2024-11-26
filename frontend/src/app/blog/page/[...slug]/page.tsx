@@ -5,7 +5,6 @@ import BlogCard from "@/components/card/blog-card";
 import BlogTagsResponseData from "@/types/blogtagTypes";
 import { BlogPreviewPage } from "@/types/blogtypes";
 import { Metadata } from "next";
-import Link from "next/link";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -23,28 +22,16 @@ function Fallback() {
 }
 
 export async function generateStaticParams() {
-  // Fetch the blog data to determine the number of pages available
-  const blogRes = await fetch(
-    `${process.env.NEXT_PUBLIC_URL}/api/blog/preview/1`
-  );
-  const blogData: BlogPreviewPage = await blogRes.json();
+  const blogData: BlogPreviewPage = await getBlogPreview("1");
 
-  // Fetch all tags
-  const tagRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/tags`);
-  const tagData: BlogTagsResponseData = await tagRes.json();
+  const tagData: BlogTagsResponseData | undefined = await getTags();
 
-  // Array to hold all static paths
   const paramsArray: { slug: string[] }[] = [];
 
-  // Determine pagination count
   const pageCount = blogData?.meta?.pagination?.pageCount || 1;
 
-  // Iterate over pagination
   for (let page = 1; page <= pageCount; page++) {
-    // Always generate the base page without any tags
     paramsArray.push({ slug: [page.toString()] });
-
-    // If tags are available, generate paths without any archive
     if (tagData?.data?.length) {
       tagData.data.forEach((tag) => {
         paramsArray.push({
@@ -53,30 +40,25 @@ export async function generateStaticParams() {
       });
     }
   }
+
   return paramsArray;
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  const page = params.slug[0];
-  const tagId = params.slug[1];
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>;
+}) {
+  const page = (await params).slug[0];
+  const tagId = (await params).slug[1];
 
-  console.log(page, tagId);
-  let res: Response | undefined;
   let data: BlogPreviewPage | undefined;
   let tagRes: Response | undefined;
   let tagData: BlogTagsResponseData | undefined;
   try {
-    res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/blog/preview/${page}/${
-        tagId ? tagId : ""
-      }`
-    );
+    data = await getBlogPreview(page, tagId);
 
-    data = await res.json();
-
-    tagRes = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/tags`);
-
-    tagData = await tagRes.json();
+    tagData = await getTags();
   } catch {}
 
   if (!data || !tagData || !data.data) {
@@ -140,4 +122,47 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       )}
     </main>
   );
+}
+
+async function getBlogPreview(pageNum: string, tagId?: string) {
+  try {
+    const url = new URL(`${process.env.STRAPI_URL}/api/portfolio-blogs`);
+
+    url.searchParams.append("pagination[page]", pageNum);
+    url.searchParams.append("pagination[pageSize]", "3");
+    url.searchParams.append("fields[0]", "title");
+    url.searchParams.append("fields[1]", "date_published");
+    url.searchParams.append("fields[2]", "excerpt");
+    url.searchParams.append("fields[3]", "slug");
+    url.searchParams.append("sort", "date_published:desc");
+    url.searchParams.append("populate", "*");
+
+    if (tagId) {
+      url.searchParams.append("filters[portfolio_blog_tags][id][$eq]", tagId);
+    }
+
+    //get blogs data
+    const res = await fetch(url.toString(), {
+      headers: {
+        Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
+      },
+    });
+
+    const data = await res.json();
+
+    return data;
+  } catch {
+    return undefined;
+  }
+}
+
+async function getTags() {
+  const res = await fetch(`${process.env.STRAPI_URL}/api/portfolio-blog-tags`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_READONLY_TOKEN}`,
+    },
+  });
+  const data = await res.json();
+  return data;
 }

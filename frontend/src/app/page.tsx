@@ -7,10 +7,10 @@ import ProjectsTab from "@/components/skills-and-exp/projects-tab";
 import TechstackTab from "@/components/skills-and-exp/techstack-tab";
 import type { Metadata } from "next";
 import Image from "next/image";
-import mail from "public/envelope.svg";
-import github from "public/github.svg";
-import linkedin from "public/linkedin.svg";
-import profile from "public/profile.png";
+import mail from "/public/envelope.svg";
+import github from "/public/github.svg";
+import linkedin from "/public/linkedin.svg";
+import profile from "/public/profile.png";
 
 //export metadata
 
