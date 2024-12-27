@@ -1,0 +1,6 @@
+Since this is meant to be built locally and deployed in vercel with all of the generated pages. Here are the steps so that I can't forget how to deploy this.
+
+Make sure that Strapi is running.
+
+then run `vercel build --prod`
+then run `vercel deploy --prebuilt --prod`
