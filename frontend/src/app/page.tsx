@@ -132,7 +132,7 @@ export default function Page() {
         </p>
         <div className="mt-8">
           <a href="mailto:jroicealdeza@gmail.com">
-            <button className="btn btn-outline btn-accent btn-wide px-6 border-2">
+            <button className="btn btn-accent btn-wide px-6 border-2">
               Mail me!
             </button>
           </a>
