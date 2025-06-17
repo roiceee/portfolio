@@ -44,7 +44,9 @@ export default function Tabs() {
   // Function to change URL hash when tab is clicked
   const handleTabClick = (index: number) => {
     setActiveTab(index);
-    router.push(`/skills-and-experience#${tabs[index].id}`);
+    router.replace(`/skills-and-experience#${tabs[index].id}`, {
+      scroll: false,
+    });
   };
 
   return (
