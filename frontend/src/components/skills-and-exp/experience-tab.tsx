@@ -9,7 +9,7 @@ export default function ExperienceTab({
     {
       title: "Fullstack Developer Intern",
       company: "Symph",
-      duration: "March 2025 - July 2025",
+      duration: "March 2025 - June 2025",
       description: [
         "Improved the codebase to follow a more maintainable structure and best practices.",
         "Created new features for an AI-powered project.",
