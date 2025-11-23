@@ -782,7 +782,7 @@ export interface ApiPortfolioBlogPortfolioBlog extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     excerpt: Attribute.Text & Attribute.Required;
-    content: Attribute.Blocks & Attribute.Required;
+    content: Attribute.Blocks;
     author: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'John Roice Aldeza'>;
@@ -804,6 +804,7 @@ export interface ApiPortfolioBlogPortfolioBlog extends Schema.CollectionType {
     date_published: Attribute.Date & Attribute.Required;
     slug: Attribute.UID<'api::portfolio-blog.portfolio-blog', 'title'> &
       Attribute.Required;
+    embedHtml: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

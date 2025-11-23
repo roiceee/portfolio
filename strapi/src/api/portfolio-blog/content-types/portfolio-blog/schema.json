@@ -22,7 +22,7 @@
     },
     "content": {
       "type": "blocks",
-      "required": true
+      "required": false
     },
     "author": {
       "type": "string",
@@ -54,6 +54,9 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "embedHtml": {
+      "type": "text"
     }
   }
 }

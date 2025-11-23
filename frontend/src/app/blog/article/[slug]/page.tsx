@@ -1,4 +1,5 @@
 import BackButton from "@/components/back-button";
+import SocialEmbed from "@/components/SocialEmbed";
 import { ArticleResponse } from "@/types/articletypes";
 import { formatDate } from "@/util/date";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
@@ -153,7 +154,16 @@ export default async function Page({
       </section>
 
       <section className="mt-12">
-        <BlocksRenderer content={data.data[0].attributes.content} />
+        {data.data[0].attributes.content && (
+          <BlocksRenderer content={data.data[0].attributes.content} />
+        )}
+
+        {data.data[0].attributes.embedHtml && (
+          <SocialEmbed
+            embedHtml={data.data[0].attributes.embedHtml}
+            className="my-8 mx-auto"
+          />
+        )}
       </section>
     </main>
   );

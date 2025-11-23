@@ -40,19 +40,18 @@ interface ArticleArchive {
 interface ArticleAttributes {
   title: string;
   date_published: string;
-  content: ArticleContent;
+  content?: ArticleContent;
   excerpt: string;
   author: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  embedHtml?: string;
   portfolio_blog_tags: {
     data: ArticleTag[];
   };
   portfolio_blog_archive: ArticleArchive;
 }
-
-
 
 interface ArticleData {
   id: number;
