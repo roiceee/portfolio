@@ -30,11 +30,29 @@ export const metadata: Metadata = {
     "Freelance Developer",
   ],
   openGraph: {
-    title: "John Roice Aldeza",
+    title: "John Roice Aldeza - Fullstack Developer",
     description:
       "Fullstack Developer | I like digging into the nitty-gritty of backend functions and making user interface that just make sense.",
-    type: "profile",
-    images: [{ url: "https://johnroice.vercel.app/profile.png" }],
+    type: "website",
+    url: "https://johnroice.vercel.app",
+    siteName: "John Roice Aldeza Portfolio",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://johnroice.vercel.app/profile.png",
+        width: 280,
+        height: 280,
+        alt: "John Roice Aldeza - Fullstack Developer",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "John Roice Aldeza - Fullstack Developer",
+    description:
+      "Fullstack Developer | I like digging into the nitty-gritty of backend functions and making user interface that just make sense.",
+    images: ["https://johnroice.vercel.app/profile.png"],
   },
 };
 
