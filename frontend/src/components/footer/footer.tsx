@@ -1,6 +1,6 @@
-import mail from "/public/envelope.svg";
-import github from "/public/github.svg";
-import linkedin from "/public/linkedin.svg";
+import mail from "../../../public/envelope.svg";
+import github from "../../../public/github.svg";
+import linkedin from "../../../public/linkedin.svg";
 import RoiceText from "../roice";
 import SocialLink from "./social-link";
 

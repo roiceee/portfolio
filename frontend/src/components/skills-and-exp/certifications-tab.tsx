@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import awsCertImg from "/public/certs/aws/aws-certified-cloud-practitioner.png";
-import projCertImg from "/public/certs/project-management/cert.png";
+import awsCertImg from "../../../public/certs/aws/aws-certified-cloud-practitioner.png";
+import projCertImg from "../../../public/certs/project-management/cert.png";
 
 export default function CertificationsTab({
   isPreview = false,
@@ -9,17 +9,17 @@ export default function CertificationsTab({
   isPreview?: boolean;
 }) {
   const certificationsData = [
-    
     {
       title: "AWS Certified Cloud Practitioner",
       image: awsCertImg,
-      description: "I learned how to utilize AWS services to create, deploy, and maintain applications.",
+      description:
+        "I learned how to utilize AWS services to create, deploy, and maintain applications.",
       bullets: [
         "Understanding of AWS services",
         "Skills in creating and maintaining applications",
         "Knowledge of AWS pricing and support",
       ],
-      link:"https://www.credly.com/badges/2386b9e9-72c1-48ad-88aa-8b11a3890e13/public_url" 
+      link: "https://www.credly.com/badges/2386b9e9-72c1-48ad-88aa-8b11a3890e13/public_url",
     },
     // Add more certifications here
     {
@@ -34,7 +34,7 @@ export default function CertificationsTab({
       ],
       link: "https://coursera.org/share/f6a250e27328dca93ec7e1480fa826d4",
     },
-    
+
     // Add more certifications here
   ];
 

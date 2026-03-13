@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import type { JSX } from "react";
 import StackIcon from "tech-stack-icons";
-import maven from "/public/maven.png";
-import express from "/public/express.png";
+import maven from "../../../public/maven.png";
+import express from "../../../public/express.png";
 import Image from "next/image";
 
 export default function TechstackTab() {
@@ -70,13 +71,13 @@ export default function TechstackTab() {
     <div>
       <h1>Technical Skills</h1>
       <div className="grid lg:grid-cols-2 gap-8">
-          {techstackData.map((section, index) => (
-            <TechstackSection
-              key={index}
-              category={section.category}
-              items={section.items}
-            />
-          ))}
+        {techstackData.map((section, index) => (
+          <TechstackSection
+            key={index}
+            category={section.category}
+            items={section.items}
+          />
+        ))}
       </div>
     </div>
   );
@@ -90,12 +91,14 @@ function TechstackSection({
   items: { name: string; icon?: JSX.Element }[];
 }) {
   return (
-    <div >
+    <div>
       <h4 className="text-xl">{category}:</h4>
       <div className="flex flex-wrap gap-6 mt-4 not-prose">
         {items.map((item, index) => (
           <div key={index} className="flex flex-col items-center gap-4 text-lg">
-            {item.icon && <div className="h-[50px] aspect-square">{item.icon}</div>}
+            {item.icon && (
+              <div className="h-[50px] aspect-square">{item.icon}</div>
+            )}
             <div>{item.name}</div>
           </div>
         ))}

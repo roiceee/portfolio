@@ -42,7 +42,9 @@ function MenuItems({ onClick }: MenuItemsProps) {
         <Link
           className="font-bold text-lg active:bg-accent active:text-white "
           href={"/"}
-          ref={(element) => items.current.push(element)}
+          ref={(element) => {
+            items.current.push(element);
+          }}
           id="/"
         >
           Home
@@ -52,7 +54,9 @@ function MenuItems({ onClick }: MenuItemsProps) {
         <Link
           className="font-bold text-lg active:bg-accent active:text-white"
           href={"/skills-and-experience"}
-          ref={(element) => items.current.push(element)}
+          ref={(element) => {
+            items.current.push(element);
+          }}
           id="/skills-and-experience"
         >
           Skills &amp; Exp
@@ -62,7 +66,9 @@ function MenuItems({ onClick }: MenuItemsProps) {
         <Link
           className="font-bold text-lg active:bg-accent active:text-white"
           href={"/blog/page/1"}
-          ref={(element) => items.current.push(element)}
+          ref={(element) => {
+            items.current.push(element);
+          }}
           id="/blog"
         >
           Blog
@@ -72,7 +78,9 @@ function MenuItems({ onClick }: MenuItemsProps) {
         <Link
           className="font-bold text-lg active:bg-accent active:text-white"
           href={"/contact"}
-          ref={(element) => items.current.push(element)}
+          ref={(element) => {
+            items.current.push(element);
+          }}
           id="/contact"
         >
           Contact me
